@@ -23,6 +23,12 @@ class Emitter:
     def get_direction(self) -> Point:
         return self._direction
 
+    def set_direction(self, direction: Point) -> None:
+        self._direction = direction
+
+    def get_line(self) -> tuple:
+        return (self._direction.y / self._direction.x, 1) if self._direction.x != 0 else (0, 1)
+
 
 class Receiver:
     _amplification: float
@@ -41,3 +47,6 @@ class Station:
 
     def get_position(self) -> Point:
         return self._position
+
+    def set_position(self, position: Point) -> None:
+        self._position = position

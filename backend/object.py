@@ -1,5 +1,4 @@
-from models import Point
-
+from backend.models import Point
 
 class Object:
     def __init__(self, coordinate: Point, velocity: Point) -> None:

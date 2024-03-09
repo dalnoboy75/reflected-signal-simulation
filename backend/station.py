@@ -1,4 +1,4 @@
-from models import Point
+from backend.models import Point
 
 
 class Emitter:
@@ -6,7 +6,7 @@ class Emitter:
     _amplification: float
     _direction: Point
 
-    def __int__(self, power: float, amplification: float, direction: Point) -> None:
+    def __init__(self, power: float, amplification: float, direction: Point) -> None:
         self._power = power
         self._amplification = amplification
         self._direction = direction
@@ -33,7 +33,7 @@ class Emitter:
 class Receiver:
     _amplification: float
 
-    def __int__(self, amplification: float) -> None:
+    def __init__(self, amplification: float) -> None:
         self._amplification = amplification
 
     def get_amplification(self) -> float:
@@ -45,6 +45,8 @@ class Station:
     emitter: Emitter
     receiver: Receiver
 
+    def __init__(self):
+        self._position
     def get_position(self) -> Point:
         return self._position
 

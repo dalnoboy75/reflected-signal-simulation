@@ -5,8 +5,8 @@ class Object:
         self.coordinate = coordinate
         self.velocity = velocity
 
-    def change_location(self, new_cord) -> None:
-        self.coordinate = new_cord
+    def change_location(self) -> None:
+        self.coordinate += self.velocity
 
     def change_velocity(self, new_velocity) -> None:
         self.velocity = new_velocity

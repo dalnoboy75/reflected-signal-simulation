@@ -1,22 +1,24 @@
-from backend.models import Point
-from backend.station import Station
-from backend.object import Object
+import backend.task as task
 
-station = Station()
-positions = [Point(1, 2, 0), Point(5, 5, 0), Point(7, 2, 0)]
+adopted_power_ = 2.0
+emitter_power_ = 2.0
+amplification_coefficient_ = 3.0
+wavelength_ = 4.0
+reflective_area_ = 5.0
+damage_coefficient_ = 1.0
 
-object = Object(positions[0], Point(1, 1, 0))
+data = task.GraphData()
+abscissa_ = 0.0
+abscissa_label = 'adopted_power_'
+while abscissa_ <= 100:
+    interface = task.Interface()
+    interface.__int__(abscissa_, emitter_power_, amplification_coefficient_, wavelength_, reflective_area_,
+                      damage_coefficient_)
+    ordinate = interface.get_distance()
+    if ordinate != None:
+        data.append_x(abscissa_)
+        data.append_y(ordinate)
 
-signal_direction = Point(1, 1, 0)
+    abscissa_ += 0.001
 
-station.set_position(Point(0, 0, 0))
-station.emitter.set_direction(signal_direction)
-
-line = station.emitter.get_line()
-
-for i in range(1, len(positions)):
-    if positions[i].x*line[0] == line[1]:
-        print("yes", positions[i].x, positions[i].y)
-    else:
-        print("no")
-
+task.draw_chart(data, "charts", abscissa_label)

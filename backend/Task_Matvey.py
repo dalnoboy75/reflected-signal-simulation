@@ -35,7 +35,6 @@ class GraphDate:
 
     def append_x(self, num: float) -> None:
         self._abscissa.append(num)
-
     def append_y(self, num: float) -> None:
         self._ordinates.append(num)
 

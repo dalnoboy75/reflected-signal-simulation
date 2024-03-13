@@ -20,6 +20,7 @@ while abscissa_ <= 100:
         data.append_x(abscissa_)
         data.append_y(ordinate)
 
+
     abscissa_ += 0.001
 
 task.draw_chart(data, "charts", abscissa_label)

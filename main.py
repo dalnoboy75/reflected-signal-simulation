@@ -34,14 +34,32 @@ intermediate_frequency_of_the_receiver = 2
 amplitude = 3
 
 dat = TasMat.GraphDate()
-for i in range(100):
+abscissa_2 = 0.0
+while abscissa_2 <= 100:
     interface_2 = TasMat.Interfaces()
     interface_2.__int__(initial_phase_of_the_received_pulse, initial_frequency,
                                     wavelength_of_the_emitted_signal, radial_velocity_of_the_target,
                                     intermediate_frequency_of_the_receiver, amplitude)
-    ordinate = interface_2.get_frequency(i)
-    dat.append_x(i)
+    ordinate = interface_2.get_frequency_1(abscissa_2)
+    dat.append_x(abscissa_2)
     dat.append_y(ordinate)
+    abscissa_2 += 0.5
 
 TasMat.drawchart(dat, 'Quasi-continuous signal')
 
+
+frequency_deviation = 30
+pulse_duration = 20
+
+date = TasMat.GraphDate_2()
+while abscissa_2 <= 100:
+    interface_2 = TasMat.Interfaces()
+    interface_2.__int__(initial_phase_of_the_received_pulse, initial_frequency,
+                                    wavelength_of_the_emitted_signal, radial_velocity_of_the_target,
+                                    intermediate_frequency_of_the_receiver, amplitude, frequency_deviation, pulse_duration)
+    ordinate = interface_2.get_frequency_2(abscissa_2)
+    dat.append_x(abscissa_2)
+    dat.append_y(ordinate)
+    abscissa_2 += 0.5
+
+TasMat.drawchart(dat, 'Signal_with_linear_frequency_modulation')

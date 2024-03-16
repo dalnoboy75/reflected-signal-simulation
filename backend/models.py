@@ -6,7 +6,7 @@ class Point:
 
     def __add__(self, other):
         if isinstance(self,other):
-            self.x = other.x
-            self.y = other.y
-            self.z = other.z
+            self.x += other.x
+            self.y += other.y
+            self.z += other.z
 

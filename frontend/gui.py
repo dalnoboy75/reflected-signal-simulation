@@ -12,7 +12,7 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(921, 558)
+        MainWindow.resize(921, 604)
         self.centralwidget = QtWidgets.QWidget(parent=MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.verticalLayoutWidget_4 = QtWidgets.QWidget(parent=self.centralwidget)
@@ -418,6 +418,15 @@ class Ui_MainWindow(object):
         self.label.setObjectName("label")
         self.horizontalLayout_13.addWidget(self.label)
         self.verticalLayout_9.addLayout(self.horizontalLayout_13)
+        self.pushButton = QtWidgets.QPushButton(parent=self.centralwidget)
+        self.pushButton.setGeometry(QtCore.QRect(380, 460, 150, 70))
+        self.pushButton.setMinimumSize(QtCore.QSize(150, 70))
+        self.pushButton.setMaximumSize(QtCore.QSize(150, 70))
+        font = QtGui.QFont()
+        font.setPointSize(17)
+        font.setItalic(True)
+        self.pushButton.setFont(font)
+        self.pushButton.setObjectName("pushButton")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(parent=MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 921, 22))
@@ -446,6 +455,7 @@ class Ui_MainWindow(object):
         self.lineEdit_12.setText(_translate("MainWindow", "Critical Energy:"))
         self.lineEdit_11.setText(_translate("MainWindow", "Distance:"))
         self.label.setText(_translate("MainWindow", "0"))
+        self.pushButton.setText(_translate("MainWindow", "Simulate"))
 
 
 if __name__ == "__main__":

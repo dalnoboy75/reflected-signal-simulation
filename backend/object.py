@@ -12,11 +12,13 @@ class Object:
     def change_velocity(self, new_velocity) -> None:
         self.velocity = new_velocity
 
-    def get_location_at_time(self, time) -> list:
+    def get_location_at_time(self, time, time_step=1) -> list:
         coords = list()
+        ind = 1
         coords.append(self.coordinate)
-        for i in range(1, time + 1):
-            coords.append(coords[i - 1] + self.velocity)
+        for i in range(time_step, time + 1, time_step):
+            coords.append(coords[ind - 1] + self.velocity * time_step)
+            ind += 1
         return coords
 
     def get_location(self) -> Point:

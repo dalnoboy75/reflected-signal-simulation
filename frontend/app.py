@@ -1,12 +1,23 @@
 from PyQt6 import QtWidgets
 from gui import Ui_MainWindow
-
+from backend.object import Object
+from backend.models import Point
 class MainWindow(QtWidgets.QMainWindow):
     def __init__(self):
         super().__init__()
 
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
+
+        self.ui.simulatePushButton.clicked.connect(lambda :self.simulate())
+
+    def simulate(self):
+        coords = Point(self.ui.coords_x.value(),self.ui.coords_y.value(),self.ui.coords_z.value())
+        speed = Point(self.ui.speed_x.value(), self.ui.speed_y.value(), self.ui.speed_z.value(),)
+        object = Object(coords, speed)
+        positions = object.get_location_at_time(10)
+        for i in positions:
+            print(i)
 
 if __name__ == '__main__':
     import sys

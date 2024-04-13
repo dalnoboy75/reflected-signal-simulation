@@ -20,16 +20,16 @@ class Impulse:
         return self.power
 
 class PackOfImpulse:
-    def __init__(self, time: int, type_of_sygnal: str, l: list):
-        self.time = time
+    def __init__(self, dtime: int, type_of_sygnal: str, lis: list):
+        self.dtime = dtime
         self.type = type_of_sygnal
-        self.l = l
+        self.lis = lis
 
     def add_impulse(self, new_impulse: Impulse):
-        self.l.append(new_impulse)
+        self.lis.append(new_impulse)
 
     def get_list(self):
-        return self.l
+        return self.lis
 
 class signal:
     def __init__(self, sig: list):

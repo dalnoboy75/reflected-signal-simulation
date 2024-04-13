@@ -2,6 +2,7 @@ from PyQt6 import QtWidgets
 from gui import Ui_MainWindow
 from backend.object import Object
 from backend.models import Point
+from backend.station import Station
 
 
 class MainWindow(QtWidgets.QMainWindow):
@@ -17,10 +18,10 @@ class MainWindow(QtWidgets.QMainWindow):
         coords = Point(self.ui.coords_x.value(), self.ui.coords_y.value(), self.ui.coords_z.value())
         speed = Point(self.ui.speed_x.value(), self.ui.speed_y.value(), self.ui.speed_z.value())
         station_coords = Point(self.ui.station_coords_x.value(), self.ui.station_coords_y.value(), self.ui.station_coords_z.value())
-        print(coords, speed, station_coords)
-        self.ui.distance_label.setText(f'{abs(coords - station_coords):.3f}')
-        self.ui.speed_label.setText(f'{abs(speed):.3f}')
         obj = Object(coords, speed)
+        station = Station(station_coords, obj)
+        self.ui.distance_label.setText(f'{station.distance_to_object():.3f}')
+        self.ui.speed_label.setText(f'{station.object_speed():.3f}')
         positions = obj.get_location_at_time(10)
         for i in positions:
             print(i)

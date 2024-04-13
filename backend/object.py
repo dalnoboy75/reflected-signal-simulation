@@ -12,6 +12,8 @@ class Object:
     def change_velocity(self, new_velocity) -> None:
         self.velocity = new_velocity
 
+    def get_velocity(self):
+        return self.velocity
     def get_location_at_time(self, time, time_step=1) -> list:
         coords = list()
         ind = 1

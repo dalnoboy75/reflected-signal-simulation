@@ -1,6 +1,7 @@
 from backend.models import Point
 from backend.object import Object
 
+
 class Emitter:
     _power: float
     _amplification: float
@@ -45,17 +46,18 @@ class Station:
     emitter: Emitter
     receiver: Receiver
 
-    def __init__(self, position: Point, obj:Object):
+    def __init__(self, position: Point, obj: Object):
         self._position = position
         self._object = obj
+
     def get_position(self) -> Point:
         return self._position
 
     def set_position(self, position: Point) -> None:
         self._position = position
 
-    def distance_to_object(self, position_object: Point) -> int:
-        return abs(position_object - self._position)
+    def distance_to_object(self) -> float:
+        return abs(self._object.get_location() - self._position)
 
-    def object_speed(self):
-        return self._object.get_velocity()
+    def object_speed(self) -> float:
+        return abs(self._object.get_velocity())

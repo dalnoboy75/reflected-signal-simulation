@@ -20,6 +20,7 @@ class MainWindow(QtWidgets.QMainWindow):
         station_coords = Point(self.ui.station_coords_x.value(), self.ui.station_coords_y.value(), self.ui.station_coords_z.value())
         obj = Object(coords, speed)
         station = Station(station_coords, obj)
+        print(station.distance_to_object())
         self.ui.distance_label.setText(f'{station.distance_to_object():.3f}')
         self.ui.speed_label.setText(f'{station.object_speed():.3f}')
         positions = obj.get_location_at_time(10)

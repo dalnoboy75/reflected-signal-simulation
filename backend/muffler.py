@@ -1,15 +1,13 @@
 import random
 
-class Muffler:
-    def __init__(self, noise_percent):
-        self.noise_percent = noise_percent
+from rls import RLS
 
-    def noise_mc(self, power):
-        fraction = random.uniform(0, 1)
-        noise = power * fraction * (self.noise_percent / 100.0)
-        sign = random.randint(0, 1)
-        if sign == 0:
-            power += abs(noise)
-        else:
-            power -= abs(noise)
-        return power
+
+class Muffler:
+    def __init__(self, noise_share: float) -> None:
+        self._noise_share = noise_share
+
+    def noise_signal(self, rls: RLS) -> None:
+        distribution = random.uniform(-1, 1)
+        noise = rls.get_received_power() * distribution * self._noise_share
+        rls.update_received_power(noise)

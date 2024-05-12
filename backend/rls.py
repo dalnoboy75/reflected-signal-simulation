@@ -1,5 +1,7 @@
-import numpy as np
 from math import pi
+
+import numpy as np
+
 from entity import Entity
 from muffler import Muffler
 from lsm import *
@@ -37,6 +39,9 @@ class RLS:
 
     def calculate_distance(self, entity: Entity) -> float:
         return np.linalg.norm(entity.get_position() - self._coordinates)
+
+    def get_direction_to_entity(self, entity: Entity) -> np.array:
+        return entity.get_position() - self._coordinates
 
     def emit_signal(self, entity: Entity) -> None:
         distance = self.calculate_distance(entity)

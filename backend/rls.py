@@ -33,6 +33,12 @@ class RLS:
         self._number_of_measurements = self.base_measurements_amount
         self._current_percent = 0
 
+    def get_reflective_surface(self):
+        return self._reflective_surface
+
+    def get_wave_length(self):
+        return self._wave_length
+
     def reset_energy(self) -> None:
         self._current_energy = self._base_energy
         speed_of_light * plank_constant / self._current_energy
@@ -92,7 +98,8 @@ class RLS:
 
         return np.array(mean_coordinates, coordinates_error)
 
-    def calculate_velocity_with_lsm(self, entity: Entity, direction_vector: np.array, muffler: Muffler, dt: float) -> np.array:
+    def calculate_velocity_with_lsm(self, entity: Entity, direction_vector: np.array, muffler: Muffler,
+                                    dt: float) -> np.array:
         time = np.arange(1, self.velocity_measurements_amount + 1) * dt
         coordinates = np.array([])
 

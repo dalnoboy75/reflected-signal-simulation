@@ -1,6 +1,6 @@
 from PyQt6 import QtWidgets
 from gui import Ui_MainWindow
-from backend.signal_simulation import simulate
+from backend.simulation import simulate
 import matplotlib.pyplot as plt
 import matplotlib.figure
 import numpy as np

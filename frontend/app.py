@@ -47,7 +47,6 @@ class MainWindow(QtWidgets.QMainWindow):
         self.wave_len = res["WAVEL"]
         self.fc = res["L"]
         self.coords = res["OBJCOORD"]
-        print(self.distance, self.speed)
         if np.isnan(self.distance) or np.isnan(self.speed):
             QtWidgets.QMessageBox.critical(self, 'Error', 'Something went wrong. Please, put different values.',
                                            buttons=QtWidgets.QMessageBox.StandardButton.Ok,
@@ -55,13 +54,6 @@ class MainWindow(QtWidgets.QMainWindow):
         else:
             self.ui.distance_label.setText(f'{self.distance:.3f}')
             self.ui.speed_label.setText(f'{self.speed:.3f}')
-        '''
-        TODO:
-        считываем данные (DONE)
-        отправляем данные(DONE)
-        возвращаем данные(DONE)
-        выводим данные(DONE)
-        '''
 
     def SaveResults(self):
         if ("NULL" in (self.ui.distance_label.text(), self.ui.speed_label.text())):
@@ -85,19 +77,15 @@ class MainWindow(QtWidgets.QMainWindow):
                                            defaultButton=QtWidgets.QMessageBox.StandardButton.Ok)
             return
 
-        print(1)
         self.scene.clear()
         self.scene.set_size_inches(5, 5)
         self.obj_coords = self.data["OBJ"]["COORD"]
-        print(2)
         axes = self.scene.add_subplot((0, 0.05, 1, 0.9), projection='3d', facecolor='lightblue')
-        print(3)
         axes.cla()
 
         dist_rl_obj = np.array(list(self.obj_coords)) - np.array(list(self.data["RLS"]["COORD"]))
 
         real_dist = self.results["MUFDIST"]
-        print(4)
         axes.plot([self.data["RLS"]["COORD"][0], self.obj_coords[0]],
                   [self.data["RLS"]["COORD"][1], self.obj_coords[1]],
                   [self.data["RLS"]["COORD"][2], self.obj_coords[2]])
@@ -106,7 +94,6 @@ class MainWindow(QtWidgets.QMainWindow):
         list_radius = [self.data["OBJ"]["RADIUS"], 1, real_dist]
         list_color = [('red', 0.8), ('green', 0.8), ('blue', 0.1)]
         names = ["OBJECT", "RLS", "DISTANCE"]
-        print(5)
         min_, max_ = float("inf"), 0
         for name_, c, r, draw in zip(names, list_center, list_radius,
                                      list_color):
@@ -115,14 +102,12 @@ class MainWindow(QtWidgets.QMainWindow):
             x = r * np.cos(u) * np.sin(v)
             y = r * np.sin(u) * np.sin(v)
             z = r * np.cos(v)
-            print(6)
             min_ = min(np.amin(x), np.amin(y), np.amin(z),
                        min_)  # lowest number in the array
             max_ = max(np.amax(x), np.amax(y), np.amax(z),
                        max_)  # highest number in the array
             axes.plot_surface(c[0] - x, c[1] - y, c[2] - z, color=draw[0],
                               alpha=draw[1], label=name_)
-            print(7)
 
         axes.text(
             self.data["RLS"]["COORD"][0], self.data["RLS"]["COORD"][1],
@@ -146,7 +131,30 @@ class MainWindow(QtWidgets.QMainWindow):
 
 
     def DrawPlots(self):
-        pass
+        if ("NULL" in (self.ui.distance_label.text(), self.ui.speed_label.text())):
+            QtWidgets.QMessageBox.critical(self, 'Error', 'Nothing to draw. Please, make simulation.',
+                                           buttons=QtWidgets.QMessageBox.StandardButton.Ok,
+                                           defaultButton=QtWidgets.QMessageBox.StandardButton.Ok)
+            return
+
+        plt.close(self.plots)
+        self.plots.clear()
+        grafics = self.results["PREDICT"]
+        print(grafics)
+        print(1)
+
+        self.plots, axes = plt.subplots()
+        self.plots.canvas.manager.set_window_title('Plot')
+        print(2)
+        axes.plot(grafics[0], grafics[1])
+        print(3)
+        axes.set_title('Prediction Accuracy(Noise)')
+        axes.set_xlabel('Noise(%)')
+        axes.set_ylabel('Accuracy(%)')
+        self.plots.show()
+        print(4)
+
+
 
 if __name__ == '__main__':
     import sys

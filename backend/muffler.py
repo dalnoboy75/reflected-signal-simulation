@@ -1,5 +1,4 @@
-import random
-
+from random import uniform
 from rls import RLS
 
 
@@ -8,6 +7,6 @@ class Muffler:
         self._noise_share = noise_share
 
     def noise_signal(self, rls: RLS) -> None:
-        distribution = random.uniform(-1, 1)
-        noise = rls.get_received_power() * distribution * self._noise_share
-        rls.update_received_power(noise)
+        distribution = uniform(-1, 1)
+        power = rls.receiver.power * distribution * self._noise_share
+        rls.receiver.modify_power(power)

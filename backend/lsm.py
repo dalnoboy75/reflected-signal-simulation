@@ -2,13 +2,16 @@ import numpy as np
 
 
 class LSMDescription:
-    incline: float
-    shift: float
+
+    def __init__(self, incline: float, shift: float) -> None:
+        self.incline = incline
+        self.shift = shift
 
 
 class MSEDescription:
-    mean: float
-    error: float
+    def __init__(self, mean: float, error: float) -> None:
+        self.mean = mean
+        self.error = error
 
 
 def get_lsm_description(abscissa: np.array, ordinates: np.array) -> LSMDescription:
@@ -18,10 +21,10 @@ def get_lsm_description(abscissa: np.array, ordinates: np.array) -> LSMDescripti
     avr_x2 = np.mean(abscissa ** 2)
     incline = (avr_xy - avr_x * avr_y) / (avr_x2 - avr_x ** 2)
     shift = avr_y - incline * avr_x
-    return LSMDescription(incline=incline, shift=shift)
+    return LSMDescription(incline, shift)
 
 
 def get_mse(measurements: np.array) -> MSEDescription:
     mean = np.mean(measurements)
     error = np.mean((measurements - mean) ** 2)
-    return MSEDescription(mean=mean, error=error)
+    return MSEDescription(mean, error)

@@ -18,7 +18,9 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.simulatePushButton.clicked.connect(lambda: self.Simulate())
         self.ui.actionSave.triggered.connect(lambda: self.SaveResults())
         self.ui.actionDrawScene.triggered.connect(lambda: self.DrawScene())
+        self.ui.actionDraw_plots.triggered.connect(lambda : self.DrawPlots())
 
+        self.plots = plt.figure()
         self.scene = plt.figure(facecolor='lightblue')
         self.scene.canvas.manager.set_window_title('Simulation result')
 
@@ -142,6 +144,9 @@ class MainWindow(QtWidgets.QMainWindow):
         plt.close('all')
         a0.accept()
 
+
+    def DrawPlots(self):
+        pass
 
 if __name__ == '__main__':
     import sys

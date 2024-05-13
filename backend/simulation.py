@@ -33,9 +33,8 @@ def simulate(data: dict) -> dict:
     station.receiver.get_signal(entity, station.radiator.power, station.radiator.wave_length)
     muffled_distance = station.calculate_distance(entity, noise)
 
-    direction_vector = station.receiver.get_direction(entity)
-    entity_coords = station.calculate_coordinate(entity, direction_vector, noise)[0]
-    velocity_vector = station.calculate_velocity(entity, direction_vector, noise, dt)
+    entity_coords = station.calculate_coordinate(entity, noise)[0]
+    velocity_vector = station.calculate_velocity(entity, noise, dt)
     velocity = np.linalg.norm(velocity_vector)
 
     # Preparing the result dictionary

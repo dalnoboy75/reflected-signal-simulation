@@ -181,7 +181,6 @@ class MainWindow(QtWidgets.QMainWindow):
         plt.close(self.plots)
         self.plots.clear()
         grafics = self.results["PREDICT"]
-
         self.plots, axes = plt.subplots()
         self.plots.canvas.manager.set_window_title('Plot')
         axes.plot(grafics[0], grafics[1])

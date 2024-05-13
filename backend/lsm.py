@@ -2,7 +2,7 @@ import numpy as np
 
 
 class LSMDescription:
-    """Class for storing Least Squares Method description."""
+    """Class for storing the Least Squares Method description."""
     __slots__ = ('incline', 'shift')
 
     def __init__(self, incline: float, shift: float) -> None:
@@ -21,7 +21,7 @@ class MSEDescription:
 
 def get_lsm_description(abscissa: np.array, ordinates: np.array) -> LSMDescription:
     """
-    Calculate LSM (Least Squares Method) description.
+    Calculate LSM (the Least Squares Method) description.
 
     :param abscissa: Array of x-coordinates.
     :param ordinates: Array of y-coordinates.

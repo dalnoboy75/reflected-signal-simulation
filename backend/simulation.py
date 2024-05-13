@@ -13,7 +13,6 @@ def simulate(data: dict) -> dict:
     muffler = Muffler(noise_share=data["DISTORTION"])
     dt = data["DT"]
     noise = muffler.generate_noise()
-    print(station.testing_prediction_on_different_noise(muffler, entity))
 
     station.receiver.get_signal(entity, station.radiator.power, station.radiator.wave_length)
     muffled_distance = station.calculate_distance(entity, noise)
@@ -24,5 +23,6 @@ def simulate(data: dict) -> dict:
     velocity = np.linalg.norm(velocity_vector)
 
     res = {"MUFDIST": muffled_distance, "SPEED": velocity, "SIGMA": entity.reflection_surface,
-           "WAVEL": station.radiator.wave_length, "L": 1, "OBJCOORD": entity_coords}
+           "WAVEL": station.radiator.wave_length, "L": 1, "OBJCOORD": entity_coords,
+           "PREDICT": station.testing_prediction_on_different_noise(muffler, entity)}
     return res

@@ -17,10 +17,13 @@ def simulate(data: dict) -> dict:
     dt = data["DT"]
     print(3)
     muffled_distance = rl.calculate_distance(obj, muf)
-    dir_to_obj_vector = rl.receiver.get_direction(obj)
-    obj_coords = rl.calculate_coordinate(obj, dir_to_obj_vector, muf)[0]
-    speed_vector = rl.calculate_velocity(obj, dir_to_obj_vector, muf, dt)
     print(4)
+    dir_to_obj_vector = rl.receiver.get_direction(obj)
+    print(5)
+    obj_coords = rl.calculate_coordinate(obj, dir_to_obj_vector, muf)[0]
+    print(6)
+    speed_vector = rl.calculate_velocity(obj, dir_to_obj_vector, muf, dt)
+    print(7)
     speed = np.linalg.norm(speed_vector)
     res = {"MUFDIST": muffled_distance, "SPEED": speed, "SIGMA": obj.reflection_surface,
            "WAVEL": rl.radiator.wave_length, "L": 1, "OBJCOORD": obj_coords}

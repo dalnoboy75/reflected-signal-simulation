@@ -1,6 +1,6 @@
 import numpy as np
-from entity import Entity
-from constants import *
+from backend.entity import Entity
+from backend.constants import *
 
 
 class Receiver:
@@ -42,4 +42,4 @@ class Receiver:
                 4 * pi * distance ** 2)) * (entity.reflection_surface / (4 * pi * distance ** 2)) * ((
                                                                                                              self._amplification_coefficient * wave_length ** 2) / (
                                                                                                              4 * pi)) * (
-                                 1 / self._fix_coefficient)
+                              1 / self._fix_coefficient)

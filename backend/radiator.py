@@ -1,4 +1,4 @@
-from constants import *
+from backend.constants import *
 import numpy as np
 
 
@@ -13,7 +13,7 @@ class Radiator:
 
     @property
     def power(self):
-        return self.power
+        return self._power
 
     @property
     def wave_length(self):

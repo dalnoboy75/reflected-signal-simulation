@@ -1,9 +1,9 @@
-from muffler import Muffler
-from radiator import Radiator
-from receiver import Receiver
-from entity import Entity
-from lsm import *
-from constants import *
+from backend.muffler import Muffler
+from backend.radiator import Radiator
+from backend.receiver import Receiver
+from backend.entity import Entity
+from backend.lsm import *
+from backend.constants import *
 
 
 class RLS:
@@ -17,7 +17,7 @@ class RLS:
         # Radiator
         self.radiator = Radiator(coordinates, energy, impulse_count)
 
-    def _calculate_distance(self, entity: Entity, muffler: Muffler) -> float:
+    def calculate_distance(self, entity: Entity, muffler: Muffler) -> float:
         self.receiver.get_signal(entity, self.radiator.power, self.radiator.wave_length)
         muffler.noise_signal(self)
         power_coefficient = self.radiator.power / self.receiver.power
@@ -27,14 +27,14 @@ class RLS:
 
     def _calculate_coordinate(self, entity: Entity, muffler: Muffler, direction_vector: np.array) -> float:
         unit_vector = direction_vector / np.linalg.norm(direction_vector)
-        return self.receiver.position + unit_vector * self._calculate_distance(entity, muffler)
+        return self.receiver.position + unit_vector * self.calculate_distance(entity, muffler)
 
     def calculate_coordinate(self, entity: Entity, direction_vector: np.array, muffler: Muffler) -> np.array:
         unit_vector = direction_vector / np.linalg.norm(direction_vector)
         coordinates = np.array([])
         for i in range(self.radiator.impulse_count):
             coordinates = np.append(coordinates,
-                                    self.radiator.position + unit_vector * self._calculate_distance(
+                                    self.radiator.position + unit_vector * self.calculate_distance(
                                         entity, muffler))
 
         abscissa = coordinates[:, 0]

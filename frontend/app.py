@@ -32,7 +32,6 @@ class MainWindow(QtWidgets.QMainWindow):
                               self.ui.station_direction_z.value()), "ENERGY": self.ui.station_energy.value(),
                 "CRENERGY": self.ui.station_cr_energy.value(), "AMPL": self.ui.station_amplification.value()},
             "DISTORTION": self.ui.station_distortion.value(), "DT": self.ui.station_delta.value()}
-
         res = simulate(self.data)
         self.distance = res["MUFDIST"]
         self.speed = res["SPEED"]
@@ -40,7 +39,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.wave_len = res["WAVEL"]
         self.fc = res["L"]
         self.coords = res["OBJCOORD"]
-
+        print(4)
         self.ui.distance_label.setText(str(self.distance))
         self.ui.speed_label.setText(str(self.speed))
         '''

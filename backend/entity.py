@@ -1,5 +1,5 @@
 import numpy as np
-from constants import pi
+from backend.constants import pi
 
 
 class Entity:

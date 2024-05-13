@@ -2,30 +2,48 @@ from backend.muffler import Muffler
 from backend.radiator import Radiator
 from backend.receiver import Receiver
 from backend.entity import Entity
-from backend.lsm import *
-from backend.constants import *
+from backend.lsm import get_lsm_description, get_mse
+from backend.constants import pi
+
+import numpy as np
 
 
-# The class responsible for simulating the operation of the entire radar station.
-# It connects the receiver and the signal source, as well as calculates all the required values here
 class RLS:
+    """The class responsible for simulating the operation of the entire radar station."""
+    __slots__ = ('receiver', 'radiator')
     velocity_measurements_amount = 10
 
     def __init__(self, coordinates: np.array, amplification_coefficient: float, fix_coefficient: float,
                  energy: float, impulse_count: int) -> None:
-        # Receiver
-        self.receiver = Receiver(coordinates, amplification_coefficient, fix_coefficient)
+        """
+        Initialization of the radar station.
 
-        # Radiator
+        :param coordinates: Coordinates of the station.
+        :param amplification_coefficient: Amplification coefficient of the receiver.
+        :param fix_coefficient: Fix coefficient of the receiver.
+        :param energy: Energy of the radiator.
+        :param impulse_count: Number of impulses for the radiator.
+        """
+        self.receiver = Receiver(coordinates, amplification_coefficient, fix_coefficient)
         self.radiator = Radiator(coordinates, energy, impulse_count)
 
-    # A function that squelches the signal
-    def noise_signal(self, noise: float):
+    def noise_signal(self, noise: float) -> None:
+        """
+        Squeezes the signal based on the given noise level.
+
+        :param noise: Noise level.
+        """
         power = self.receiver.power * noise
         self.receiver.modify_power(power)
 
-    # Function that calculates the distance based on the received and radiated signal power
-    def calculate_distance(self, entity: Entity, noise) -> float:
+    def calculate_distance(self, entity: Entity, noise: float) -> float:
+        """
+        Calculates the distance based on the received and radiated signal power.
+
+        :param entity: The object to which the distance is calculated.
+        :param noise: Noise level.
+        :return: Calculated distance.
+        """
         self.radiator.emit_signal()
         self.receiver.get_signal(entity, self.radiator.power, self.radiator.wave_length)
         self.noise_signal(noise)
@@ -34,13 +52,27 @@ class RLS:
                 self.receiver.amplification_coefficient ** 2) * entity.reflection_surface * self.radiator.wave_length ** 2) / (
                         64 * self.receiver.fix_coefficient * pi ** 3)) ** 0.25
 
-    # Function that calculates coordinates based on the predicted distance to the object
     def _calculate_coordinate(self, entity: Entity, noise: float, direction_vector: np.array) -> float:
+        """
+        Calculates coordinates based on the predicted distance to the object.
+
+        :param entity: The object to which the coordinates are calculated.
+        :param noise: Noise level.
+        :param direction_vector: Direction vector from the receiver to the object.
+        :return: Calculated coordinates.
+        """
         unit_vector = direction_vector / np.linalg.norm(direction_vector)
         return self.receiver.position + unit_vector * self.calculate_distance(entity, noise)
 
-    # A function that calculates coordinates based on several measurements, it takes an average value
     def calculate_coordinate(self, entity: Entity, direction_vector: np.array, noise: float) -> np.array:
+        """
+        Calculates coordinates based on several measurements, taking an average value.
+
+        :param entity: The object to which the coordinates are calculated.
+        :param direction_vector: Direction vector from the receiver to the object.
+        :param noise: Noise level.
+        :return: Array of mean coordinates and coordinate errors.
+        """
         coordinates = []
         for i in range(self.radiator.impulse_count):
             coordinates.append(self._calculate_coordinate(entity, direction_vector, noise))
@@ -55,8 +87,16 @@ class RLS:
 
         return np.array([mean_coordinate, coordinate_error])
 
-    # A function that calculates the speed based on several measurements, it takes an average value
     def calculate_velocity(self, entity: Entity, direction_vector: np.array, noise: float, dt: float) -> np.array:
+        """
+        Calculates the speed based on several measurements, taking an average value.
+
+        :param entity: The object to which the velocity is calculated.
+        :param direction_vector: Direction vector from the receiver to the object.
+        :param noise: Noise level.
+        :param dt: Time delta.
+        :return: Array of velocities.
+        """
         time = np.arange(1, self.velocity_measurements_amount + 1) * dt
         coordinates = []
 
@@ -72,14 +112,20 @@ class RLS:
 
         return np.array([abscissa, ordinate, applicate])
 
-    # Auxiliary function for plotting the dependence of distance prediction accuracy on noise
-    def testing_prediction_on_different_noise(self, muffler: Muffler, enity: Entity) -> list:
+    def testing_prediction_on_different_noise(self, muffler: Muffler, entity: Entity) -> list:
+        """
+        Tests the prediction accuracy on different noise levels.
+
+        :param muffler: Muffler object for generating noise levels.
+        :param entity: The object to which the prediction is tested.
+        :return: List of generated noise levels and corresponding prediction errors.
+        """
         noises = muffler.generate_noises_set()
         predict_distances_error = []
-        real_distance = self.receiver.calculate_distance(enity)
+        real_distance = self.receiver.calculate_distance(entity)
 
         for i in range(len(noises)):
-            distance = self.calculate_distance(enity, noises[i])
+            distance = self.calculate_distance(entity, noises[i])
             predict_distances_error.append((min(distance, real_distance) / max(distance, real_distance)) * 100)
             noises[i] *= 100
         return [noises, predict_distances_error]

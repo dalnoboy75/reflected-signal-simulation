@@ -4,6 +4,7 @@ from backend.muffler import Muffler
 from backend.rls import RLS
 
 
+# Main function for running a simulation based on input data
 def simulate(data: dict) -> dict:
     station = RLS(coordinates=np.array(list(data["RLS"]["COORD"])), amplification_coefficient=data["RLS"]["AMPL"],
                   fix_coefficient=1, energy=data["RLS"]["ENERGY"], impulse_count=5)

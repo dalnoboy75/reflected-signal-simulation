@@ -1,5 +1,3 @@
-import numpy as np
-
 from backend.muffler import Muffler
 from backend.radiator import Radiator
 from backend.receiver import Receiver
@@ -8,6 +6,8 @@ from backend.lsm import *
 from backend.constants import *
 
 
+# The class responsible for simulating the operation of the entire radar station.
+# It connects the receiver and the signal source, as well as calculates all the required values here
 class RLS:
     velocity_measurements_amount = 10
 
@@ -19,10 +19,12 @@ class RLS:
         # Radiator
         self.radiator = Radiator(coordinates, energy, impulse_count)
 
+    # A function that squelches the signal
     def noise_signal(self, noise: float):
         power = self.receiver.power * noise
         self.receiver.modify_power(power)
 
+    # Function that calculates the distance based on the received and radiated signal power
     def calculate_distance(self, entity: Entity, noise) -> float:
         self.radiator.emit_signal()
         self.receiver.get_signal(entity, self.radiator.power, self.radiator.wave_length)
@@ -32,10 +34,12 @@ class RLS:
                 self.receiver.amplification_coefficient ** 2) * entity.reflection_surface * self.radiator.wave_length ** 2) / (
                         64 * self.receiver.fix_coefficient * pi ** 3)) ** 0.25
 
+    # Function that calculates coordinates based on the predicted distance to the object
     def _calculate_coordinate(self, entity: Entity, noise: float, direction_vector: np.array) -> float:
         unit_vector = direction_vector / np.linalg.norm(direction_vector)
         return self.receiver.position + unit_vector * self.calculate_distance(entity, noise)
 
+    # A function that calculates coordinates based on several measurements, it takes an average value
     def calculate_coordinate(self, entity: Entity, direction_vector: np.array, noise: float) -> np.array:
         coordinates = []
         for i in range(self.radiator.impulse_count):
@@ -51,8 +55,8 @@ class RLS:
 
         return np.array([mean_coordinate, coordinate_error])
 
-    def calculate_velocity(self, entity: Entity, direction_vector: np.array, noise: float,
-                           dt: float) -> np.array:
+    # A function that calculates the speed based on several measurements, it takes an average value
+    def calculate_velocity(self, entity: Entity, direction_vector: np.array, noise: float, dt: float) -> np.array:
         time = np.arange(1, self.velocity_measurements_amount + 1) * dt
         coordinates = []
 
@@ -68,8 +72,14 @@ class RLS:
 
         return np.array([abscissa, ordinate, applicate])
 
+    # Auxiliary function for plotting the dependence of distance prediction accuracy on noise
     def testing_prediction_on_different_noise(self, muffler: Muffler, enity: Entity) -> list:
         noises = muffler.generate_noises_set()
+        predict_distances_error = []
         real_distance = self.receiver.calculate_distance(enity)
-        predict_distances_error = [abs(self.calculate_distance(enity, noise) - real_distance) for noise in noises]
+
+        for i in range(len(noises)):
+            distance = self.calculate_distance(enity, noises[i])
+            predict_distances_error.append((min(distance, real_distance) / max(distance, real_distance)) * 100)
+            noises[i] *= 100
         return [noises, predict_distances_error]

@@ -14,6 +14,7 @@ class MSEDescription:
         self.error = error
 
 
+# LSM calculation function
 def get_lsm_description(abscissa: np.array, ordinates: np.array) -> LSMDescription:
     avr_x = np.mean(abscissa)
     avr_y = np.mean(ordinates)
@@ -24,6 +25,7 @@ def get_lsm_description(abscissa: np.array, ordinates: np.array) -> LSMDescripti
     return LSMDescription(incline, shift)
 
 
+# MSE calculation function
 def get_mse(measurements: np.array) -> MSEDescription:
     mean = np.mean(measurements)
     error = np.mean((measurements - mean) ** 2)

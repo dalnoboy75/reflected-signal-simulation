@@ -1,6 +1,7 @@
 from random import uniform
 
 
+# A class responsible for simulating the signal attenuator as well as its characteristics
 class Muffler:
     def __init__(self, noise_share: float) -> None:
         self._noise_share = noise_share

@@ -43,10 +43,8 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def LoadValues(self):
         try:
-            print(1)
             with open('../values.json', 'r') as save:
                 self.data = json.load(save)
-            print(2)
             self.ui.obj_radius.setValue(float(self.data['OBJ']['RADIUS']))
             self.ui.obj_coords_x.setValue(float(self.data['OBJ']["COORD"][0]))
             self.ui.obj_coords_y.setValue(float(self.data['OBJ']["COORD"][1]))
@@ -54,7 +52,6 @@ class MainWindow(QtWidgets.QMainWindow):
             self.ui.obj_speed_x.setValue(float(self.data["OBJ"]["SPEED"][0]))
             self.ui.obj_speed_y.setValue(float(self.data["OBJ"]["SPEED"][1]))
             self.ui.obj_speed_z.setValue(float(self.data["OBJ"]["SPEED"][2]))
-            print(3)
             self.ui.station_coords_x.setValue(float(self.data["RLS"]["COORD"][0]))
             self.ui.station_coords_y.setValue(float(self.data["RLS"]["COORD"][1]))
             self.ui.station_coords_z.setValue(float(self.data["RLS"]["COORD"][2]))
@@ -168,7 +165,7 @@ class MainWindow(QtWidgets.QMainWindow):
     def closeEvent(self, a0):
         plt.close('all')
         message = QtWidgets.QMessageBox.question(self, 'Save values', 'Do you want to save values?', (
-            QtWidgets.QMessageBox.StandardButton.Yes | QtWidgets.QMessageBox.StandardButton.No),
+                QtWidgets.QMessageBox.StandardButton.Yes | QtWidgets.QMessageBox.StandardButton.No),
                                                  QtWidgets.QMessageBox.StandardButton.Yes)
         if message == QtWidgets.QMessageBox.StandardButton.Yes:
             self.SaveValues()

@@ -31,11 +31,10 @@ class RLS:
 
     def calculate_coordinate(self, entity: Entity, direction_vector: np.array, muffler: Muffler) -> np.array:
         unit_vector = direction_vector / np.linalg.norm(direction_vector)
-        coordinates = np.array([])
+        coordinates = []
         for i in range(self.radiator.impulse_count):
-            coordinates = np.append(coordinates,
-                                    self.radiator.position + unit_vector * self.calculate_distance(
-                                        entity, muffler))
+            coordinates.append(self.radiator.position + unit_vector * self.calculate_distance(entity, muffler))
+        coordinates = np.array(coordinates)
 
         abscissa = coordinates[:, 0]
         ordinate = coordinates[:, 1]
@@ -44,18 +43,18 @@ class RLS:
         mean_coordinate = np.array([get_mse(abscissa).mean, get_mse(ordinate).mean, get_mse(applicate).mean])
         coordinate_error = np.array([get_mse(abscissa).error, get_mse(ordinate).error, get_mse(applicate).error])
 
-        return np.array(mean_coordinate, coordinate_error)
+        return np.array([mean_coordinate, coordinate_error])
 
     def calculate_velocity(self, entity: Entity, direction_vector: np.array, muffler: Muffler,
                            dt: float) -> np.array:
         time = np.arange(1, self.velocity_measurements_amount + 1) * dt
-        coordinates = np.array([])
+        coordinates = []
 
         for i in range(self.velocity_measurements_amount):
             self.receiver.get_signal(entity, self.radiator.power, self.radiator.wave_length)
-            coordinates = np.append(coordinates, self.calculate_coordinate(entity, direction_vector, muffler))
+            coordinates.append(self.calculate_coordinate(entity, direction_vector, muffler)[0])
             entity.update_position(dt)
-
+        coordinates = np.array(coordinates)
         abscissa = get_lsm_description(time, coordinates[:, 0]).incline
         ordinate = get_lsm_description(time, coordinates[:, 1]).incline
         applicate = get_lsm_description(time, coordinates[:, 2]).incline

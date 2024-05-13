@@ -1,8 +1,9 @@
 import numpy as np
-from rls import RLS
+from backend.rls import RLS
 from math import pi, sqrt
 
-
+class RLS:
+    pass
 class Entity:
     def __init__(self, coordinates: np.array, radius: float, velocity: np.array) -> None:
         self._coordinates = coordinates

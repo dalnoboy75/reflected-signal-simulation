@@ -2,9 +2,9 @@ from math import pi
 
 import numpy as np
 
-from entity import Entity
-from muffler import Muffler
-from lsm import *
+from backend.entity import Entity
+from backend.muffler import Muffler
+from backend.lsm import *
 
 speed_of_light = 299792458
 plank_constant = 6.626 * (10 ** -34)

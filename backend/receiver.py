@@ -28,7 +28,7 @@ class Receiver:
         return self._power
 
     def get_direction(self, entity: Entity) -> np.array:
-        return np.linalg.norm(entity.position - self._coordinates)
+        return entity.position - self._coordinates
 
     def modify_power(self, power: float) -> None:
         self._power += power

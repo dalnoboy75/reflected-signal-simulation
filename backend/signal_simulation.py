@@ -7,7 +7,7 @@ from backend.rls import RLS
 def simulate(data: dict) -> dict:
     print(1)
     rl = RLS(coordinates=np.array(list(data["RLS"]["COORD"])), amplification_coefficient=data["RLS"]["AMPL"],
-             fix_coefficient=1, energy=data["RLS"]["ENERGY"], impulse_count=25)
+             fix_coefficient=1, energy=data["RLS"]["ENERGY"], impulse_count=5)
     obj = Entity(coordinates=np.array(list(data["OBJ"]["COORD"])), radius=data["OBJ"]["RADIUS"],
                  velocity=np.array(list(data["OBJ"]["SPEED"])))
     muf = Muffler(noise_share=data["DISTORTION"])

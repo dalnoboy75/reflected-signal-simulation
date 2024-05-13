@@ -20,10 +20,11 @@ def simulate(data: dict) -> dict:
     entity_speed = np.array(list(data["OBJ"]["SPEED"]))
     noise_share = data["DISTORTION"]
     dt = data["DT"]
+    impulse = data["INPC"]
 
     # Initializing objects
     station = RLS(coordinates=rls_coordinates, amplification_coefficient=rls_amplification_coefficient,
-                  fix_coefficient=1, energy=rls_energy, impulse_count=5)
+                  fix_coefficient=1, energy=rls_energy, impulse_count=impulse)
     entity = Entity(coordinates=entity_coordinates, radius=entity_radius, velocity=entity_speed)
     muffler = Muffler(noise_share=noise_share)
     noise = muffler.generate_noise()

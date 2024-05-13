@@ -4,6 +4,7 @@ from backend.simulation import simulate
 import matplotlib.pyplot as plt
 import matplotlib.figure
 import numpy as np
+import json
 
 
 class MainWindow(QtWidgets.QMainWindow):
@@ -18,11 +19,52 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.simulatePushButton.clicked.connect(lambda: self.Simulate())
         self.ui.actionSave.triggered.connect(lambda: self.SaveResults())
         self.ui.actionDrawScene.triggered.connect(lambda: self.DrawScene())
-        self.ui.actionDraw_plots.triggered.connect(lambda : self.DrawPlots())
+        self.ui.actionDraw_plots.triggered.connect(lambda: self.DrawPlots())
+        self.ui.actionSave_values.triggered.connect(lambda: self.SaveValues())
+        self.ui.actionOpen_values.triggered.connect(lambda: self.LoadValues())
 
         self.plots = plt.figure()
         self.scene = plt.figure(facecolor='lightblue')
         self.scene.canvas.manager.set_window_title('Simulation result')
+
+    def SaveValues(self):
+        self.data = {
+            "OBJ": {"COORD": (self.ui.obj_coords_x.value(), self.ui.obj_coords_y.value(), self.ui.obj_coords_z.value()),
+                    "SPEED": (self.ui.obj_speed_x.value(), self.ui.obj_speed_y.value(), self.ui.obj_speed_z.value()),
+                    "RADIUS": self.ui.obj_radius.value()}, "RLS": {"COORD": (
+                self.ui.station_coords_x.value(), self.ui.station_coords_y.value(), self.ui.station_coords_z.value()),
+                "ENERGY": self.ui.station_energy.value(),
+                "AMPL": self.ui.station_amplification.value()},
+            "DISTORTION": self.ui.station_distortion.value() / 100, "DT": self.ui.station_delta.value(),
+            "INPC": self.ui.impulse_count.value()}
+
+        with open('../values.json', 'w') as save:
+            json.dump(self.data, save)
+
+    def LoadValues(self):
+        try:
+            print(1)
+            with open('../values.json', 'r') as save:
+                self.data = json.load(save)
+            print(2)
+            self.ui.obj_radius.setValue(float(self.data['OBJ']['RADIUS']))
+            self.ui.obj_coords_x.setValue(float(self.data['OBJ']["COORD"][0]))
+            self.ui.obj_coords_y.setValue(float(self.data['OBJ']["COORD"][1]))
+            self.ui.obj_coords_z.setValue(float(self.data['OBJ']["COORD"][2]))
+            self.ui.obj_speed_x.setValue(float(self.data["OBJ"]["SPEED"][0]))
+            self.ui.obj_speed_y.setValue(float(self.data["OBJ"]["SPEED"][1]))
+            self.ui.obj_speed_z.setValue(float(self.data["OBJ"]["SPEED"][2]))
+            print(3)
+            self.ui.station_coords_x.setValue(float(self.data["RLS"]["COORD"][0]))
+            self.ui.station_coords_y.setValue(float(self.data["RLS"]["COORD"][1]))
+            self.ui.station_coords_z.setValue(float(self.data["RLS"]["COORD"][2]))
+            self.ui.station_energy.setValue(float(self.data["RLS"]["ENERGY"]))
+            self.ui.station_amplification.setValue(float(self.data["RLS"]["AMPL"]))
+            self.ui.station_distortion.setValue(float(self.data["DISTORTION"]))
+            self.ui.station_delta.setValue(float(self.data["DT"]))
+            self.ui.impulse_count.setValue(int(self.data["INPC"]))
+        except:
+            return
 
     def Simulate(self):
         self.data = {
@@ -32,7 +74,8 @@ class MainWindow(QtWidgets.QMainWindow):
                 self.ui.station_coords_x.value(), self.ui.station_coords_y.value(), self.ui.station_coords_z.value()),
                 "ENERGY": self.ui.station_energy.value(),
                 "AMPL": self.ui.station_amplification.value()},
-            "DISTORTION": self.ui.station_distortion.value() / 100, "DT": self.ui.station_delta.value(),"INPC":self.ui.impulse_count.value()}
+            "DISTORTION": self.ui.station_distortion.value() / 100, "DT": self.ui.station_delta.value(),
+            "INPC": self.ui.impulse_count.value()}
         try:
             res = simulate(self.data)
         except:
@@ -66,9 +109,6 @@ class MainWindow(QtWidgets.QMainWindow):
             file = open('../results.txt', 'w')
             file.write(f'Distance:{dist} Speed:{vel}\n')
             file.close()
-        '''
-        сохраняем обработанные данные в файл(DONE)
-        '''
 
     def DrawScene(self):
         if ("NULL" in (self.ui.distance_label.text(), self.ui.speed_label.text())):
@@ -127,8 +167,12 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def closeEvent(self, a0):
         plt.close('all')
+        message = QtWidgets.QMessageBox.question(self, 'Save values', 'Do you want to save values?', (
+            QtWidgets.QMessageBox.StandardButton.Yes | QtWidgets.QMessageBox.StandardButton.No),
+                                                 QtWidgets.QMessageBox.StandardButton.Yes)
+        if message == QtWidgets.QMessageBox.StandardButton.Yes:
+            self.SaveValues()
         a0.accept()
-
 
     def DrawPlots(self):
         if ("NULL" in (self.ui.distance_label.text(), self.ui.speed_label.text())):
@@ -140,20 +184,14 @@ class MainWindow(QtWidgets.QMainWindow):
         plt.close(self.plots)
         self.plots.clear()
         grafics = self.results["PREDICT"]
-        print(grafics)
-        print(1)
 
         self.plots, axes = plt.subplots()
         self.plots.canvas.manager.set_window_title('Plot')
-        print(2)
         axes.plot(grafics[0], grafics[1])
-        print(3)
         axes.set_title('Prediction Accuracy(Noise)')
         axes.set_xlabel('Noise(%)')
         axes.set_ylabel('Accuracy(%)')
         self.plots.show()
-        print(4)
-
 
 
 if __name__ == '__main__':

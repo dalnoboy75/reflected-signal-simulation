@@ -2,6 +2,7 @@ import numpy as np
 from backend.constants import pi
 
 
+# The class responsible for simulation of the object, its characteristics and behavior
 class Entity:
     def __init__(self, coordinates: np.array, radius: float, velocity: np.array) -> None:
         self._coordinates = coordinates

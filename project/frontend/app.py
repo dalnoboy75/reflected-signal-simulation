@@ -210,8 +210,8 @@ class MainWindow(QtWidgets.QMainWindow):
         self.plots.canvas.manager.set_window_title('Plot')
         axes.plot(grafics[0], grafics[1])
         axes.set_title('Prediction Accuracy(Noise)')
-        axes.set_xlabel('Noise(%)')
-        axes.set_ylabel('Accuracy(%)')
+        axes.set_xlabel('Noise')
+        axes.set_ylabel('Accuracy')
         self.plots.show()
 
 

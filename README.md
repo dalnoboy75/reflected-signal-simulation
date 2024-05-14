@@ -7,7 +7,7 @@
 <hr>
 
 <h2>Запуск программы</h2>
-<p>1. Запустите программу, запустив скрипт <em>main.py</em>.<br>
+<p>1. Запустите программу, запустив скрипт <em>app.py</em>.<br>
 2. После запуска появится главное окно программы:</p>
 <img src = https://github.com/dalnoboy75/reflected-signal-simulation/assets/39648068/a7c7f96f-0be3-4f67-831d-16a6e8af00fa>
 

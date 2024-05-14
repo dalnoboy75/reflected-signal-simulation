@@ -1,0 +1,134 @@
+\doxysection{receiver.\+Receiver Class Reference}
+\hypertarget{classreceiver_1_1_receiver}{}\label{classreceiver_1_1_receiver}\index{receiver.Receiver@{receiver.Receiver}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+None \mbox{\hyperlink{classreceiver_1_1_receiver_ae58a6d621533d1bad0226321dc49dab2}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self, np.\+array coordinates, float \mbox{\hyperlink{classreceiver_1_1_receiver_a5e350d13d68b6efde60f7fbf60d054f0}{amplification\+\_\+coefficient}}, float \mbox{\hyperlink{classreceiver_1_1_receiver_a6b5a96409c3b5e6fa29da840f35b01a4}{fix\+\_\+coefficient}})
+\item 
+np.\+array \mbox{\hyperlink{classreceiver_1_1_receiver_a1f9d5fefa89a1dc716a623a8715cb2fd}{position}} (self)
+\item 
+float \mbox{\hyperlink{classreceiver_1_1_receiver_a5e350d13d68b6efde60f7fbf60d054f0}{amplification\+\_\+coefficient}} (self)
+\item 
+float \mbox{\hyperlink{classreceiver_1_1_receiver_a6b5a96409c3b5e6fa29da840f35b01a4}{fix\+\_\+coefficient}} (self)
+\item 
+float \mbox{\hyperlink{classreceiver_1_1_receiver_ad4eb39b5ced7991d9c3e35b5f6266f95}{power}} (self)
+\item 
+np.\+array \mbox{\hyperlink{classreceiver_1_1_receiver_a0378d4047be82a199f7f3d365b7c7b17}{get\+\_\+direction}} (self, Entity entity)
+\item 
+None \mbox{\hyperlink{classreceiver_1_1_receiver_a36cb0f091a653970b81f92ffde6d4714}{modify\+\_\+power}} (self, float \mbox{\hyperlink{classreceiver_1_1_receiver_ad4eb39b5ced7991d9c3e35b5f6266f95}{power}})
+\item 
+float \mbox{\hyperlink{classreceiver_1_1_receiver_a7a8f9bdc848be15ec4471b2fd423d16d}{calculate\+\_\+distance}} (self, Entity entity)
+\item 
+None \mbox{\hyperlink{classreceiver_1_1_receiver_acb91ff9e1137351b962d278fb2f7beca}{get\+\_\+signal}} (self, Entity entity, float radiated\+\_\+power, float wave\+\_\+length)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classreceiver_1_1_receiver_a67ed5b846d228bd02ad619cc85011b28}\label{classreceiver_1_1_receiver_a67ed5b846d228bd02ad619cc85011b28} 
+{\bfseries \+\_\+coordinates}
+\item 
+\Hypertarget{classreceiver_1_1_receiver_a23d2c99565871806d9af1b6b2691fefa}\label{classreceiver_1_1_receiver_a23d2c99565871806d9af1b6b2691fefa} 
+{\bfseries \+\_\+amplification\+\_\+coefficient}
+\item 
+\Hypertarget{classreceiver_1_1_receiver_a88eb4449e746bfa2ec540ce615ef719a}\label{classreceiver_1_1_receiver_a88eb4449e746bfa2ec540ce615ef719a} 
+{\bfseries \+\_\+fix\+\_\+coefficient}
+\item 
+\Hypertarget{classreceiver_1_1_receiver_af8cd02a8195135f172390cafb7d06a53}\label{classreceiver_1_1_receiver_af8cd02a8195135f172390cafb7d06a53} 
+{\bfseries \+\_\+power}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyVerb}Class for simulating the operation of the signal receiver and its characteristics.\end{DoxyVerb}
+ 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classreceiver_1_1_receiver_ae58a6d621533d1bad0226321dc49dab2}\label{classreceiver_1_1_receiver_ae58a6d621533d1bad0226321dc49dab2} 
+\index{receiver.Receiver@{receiver.Receiver}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!receiver.Receiver@{receiver.Receiver}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily  None receiver.\+Receiver.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{np.\+array}]{coordinates,  }\item[{float}]{amplification\+\_\+coefficient,  }\item[{float}]{fix\+\_\+coefficient }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Initialization of the signal receiver.
+
+:param coordinates: Coordinates of the receiver.
+:param amplification_coefficient: Amplification coefficient of the receiver.
+:param fix_coefficient: Fix coefficient of the receiver.
+\end{DoxyVerb}
+ 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classreceiver_1_1_receiver_a5e350d13d68b6efde60f7fbf60d054f0}\label{classreceiver_1_1_receiver_a5e350d13d68b6efde60f7fbf60d054f0} 
+\index{receiver.Receiver@{receiver.Receiver}!amplification\_coefficient@{amplification\_coefficient}}
+\index{amplification\_coefficient@{amplification\_coefficient}!receiver.Receiver@{receiver.Receiver}}
+\doxysubsubsection{\texorpdfstring{amplification\_coefficient()}{amplification\_coefficient()}}
+{\footnotesize\ttfamily  float receiver.\+Receiver.\+amplification\+\_\+coefficient (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Returns the amplification coefficient of the receiver.\end{DoxyVerb}
+ \Hypertarget{classreceiver_1_1_receiver_a7a8f9bdc848be15ec4471b2fd423d16d}\label{classreceiver_1_1_receiver_a7a8f9bdc848be15ec4471b2fd423d16d} 
+\index{receiver.Receiver@{receiver.Receiver}!calculate\_distance@{calculate\_distance}}
+\index{calculate\_distance@{calculate\_distance}!receiver.Receiver@{receiver.Receiver}}
+\doxysubsubsection{\texorpdfstring{calculate\_distance()}{calculate\_distance()}}
+{\footnotesize\ttfamily  float receiver.\+Receiver.\+calculate\+\_\+distance (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{Entity}]{entity }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Calculates the distance between the receiver and the object.
+
+:param entity: The object to which the distance is calculated.
+:return: Distance between the receiver and the object.
+\end{DoxyVerb}
+ \Hypertarget{classreceiver_1_1_receiver_a6b5a96409c3b5e6fa29da840f35b01a4}\label{classreceiver_1_1_receiver_a6b5a96409c3b5e6fa29da840f35b01a4} 
+\index{receiver.Receiver@{receiver.Receiver}!fix\_coefficient@{fix\_coefficient}}
+\index{fix\_coefficient@{fix\_coefficient}!receiver.Receiver@{receiver.Receiver}}
+\doxysubsubsection{\texorpdfstring{fix\_coefficient()}{fix\_coefficient()}}
+{\footnotesize\ttfamily  float receiver.\+Receiver.\+fix\+\_\+coefficient (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Returns the fix coefficient of the receiver.\end{DoxyVerb}
+ \Hypertarget{classreceiver_1_1_receiver_a0378d4047be82a199f7f3d365b7c7b17}\label{classreceiver_1_1_receiver_a0378d4047be82a199f7f3d365b7c7b17} 
+\index{receiver.Receiver@{receiver.Receiver}!get\_direction@{get\_direction}}
+\index{get\_direction@{get\_direction}!receiver.Receiver@{receiver.Receiver}}
+\doxysubsubsection{\texorpdfstring{get\_direction()}{get\_direction()}}
+{\footnotesize\ttfamily  np.\+array receiver.\+Receiver.\+get\+\_\+direction (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{Entity}]{entity }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Calculates the direction vector from the receiver to the object.
+
+:param entity: The object to which the direction is calculated.
+:return: Direction vector from the receiver to the object.
+\end{DoxyVerb}
+ \Hypertarget{classreceiver_1_1_receiver_acb91ff9e1137351b962d278fb2f7beca}\label{classreceiver_1_1_receiver_acb91ff9e1137351b962d278fb2f7beca} 
+\index{receiver.Receiver@{receiver.Receiver}!get\_signal@{get\_signal}}
+\index{get\_signal@{get\_signal}!receiver.Receiver@{receiver.Receiver}}
+\doxysubsubsection{\texorpdfstring{get\_signal()}{get\_signal()}}
+{\footnotesize\ttfamily  None receiver.\+Receiver.\+get\+\_\+signal (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{Entity}]{entity,  }\item[{float}]{radiated\+\_\+power,  }\item[{float}]{wave\+\_\+length }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Simulates receiver operation and calculates power based on the estimated received signal.
+
+:param entity: The object from which the signal is received.
+:param radiated_power: Power of the radiated signal.
+:param wave_length: Wavelength of the radiated signal.
+\end{DoxyVerb}
+ \Hypertarget{classreceiver_1_1_receiver_a36cb0f091a653970b81f92ffde6d4714}\label{classreceiver_1_1_receiver_a36cb0f091a653970b81f92ffde6d4714} 
+\index{receiver.Receiver@{receiver.Receiver}!modify\_power@{modify\_power}}
+\index{modify\_power@{modify\_power}!receiver.Receiver@{receiver.Receiver}}
+\doxysubsubsection{\texorpdfstring{modify\_power()}{modify\_power()}}
+{\footnotesize\ttfamily  None receiver.\+Receiver.\+modify\+\_\+power (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{float}]{power }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Modifies the current power of the receiver.\end{DoxyVerb}
+ \Hypertarget{classreceiver_1_1_receiver_a1f9d5fefa89a1dc716a623a8715cb2fd}\label{classreceiver_1_1_receiver_a1f9d5fefa89a1dc716a623a8715cb2fd} 
+\index{receiver.Receiver@{receiver.Receiver}!position@{position}}
+\index{position@{position}!receiver.Receiver@{receiver.Receiver}}
+\doxysubsubsection{\texorpdfstring{position()}{position()}}
+{\footnotesize\ttfamily  np.\+array receiver.\+Receiver.\+position (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Returns the coordinates of the receiver.\end{DoxyVerb}
+ \Hypertarget{classreceiver_1_1_receiver_ad4eb39b5ced7991d9c3e35b5f6266f95}\label{classreceiver_1_1_receiver_ad4eb39b5ced7991d9c3e35b5f6266f95} 
+\index{receiver.Receiver@{receiver.Receiver}!power@{power}}
+\index{power@{power}!receiver.Receiver@{receiver.Receiver}}
+\doxysubsubsection{\texorpdfstring{power()}{power()}}
+{\footnotesize\ttfamily  float receiver.\+Receiver.\+power (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Returns the current power of the receiver.\end{DoxyVerb}
+ 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Projects/reflected-\/signal-\/simulation/project/backend/receiver.\+py\end{DoxyCompactItemize}

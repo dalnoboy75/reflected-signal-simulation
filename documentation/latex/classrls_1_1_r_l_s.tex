@@ -1,0 +1,140 @@
+\doxysection{rls.\+RLS Class Reference}
+\hypertarget{classrls_1_1_r_l_s}{}\label{classrls_1_1_r_l_s}\index{rls.RLS@{rls.RLS}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+None \mbox{\hyperlink{classrls_1_1_r_l_s_adb4b745e0e474f7c5ebaea1e38008d09}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self, np.\+array coordinates, float amplification\+\_\+coefficient, float fix\+\_\+coefficient, float energy, int impulse\+\_\+count)
+\item 
+None \mbox{\hyperlink{classrls_1_1_r_l_s_a626fc4b83a9287ad06b4e9d9d0e7c361}{noise\+\_\+signal}} (self, float noise)
+\item 
+float \mbox{\hyperlink{classrls_1_1_r_l_s_aab5e1d52fba7dc2820e97b901118bcbd}{calculate\+\_\+distance}} (self, Entity entity, float noise)
+\item 
+np.\+array \mbox{\hyperlink{classrls_1_1_r_l_s_a6c63683e25f618ab8611c9dfb4d671ae}{calculate\+\_\+coordinate}} (self, Entity entity, float noise)
+\item 
+np.\+array \mbox{\hyperlink{classrls_1_1_r_l_s_abc329d011321d13fc2b1f8b51112c3b6}{calculate\+\_\+velocity}} (self, Entity entity, float noise, float dt)
+\item 
+list \mbox{\hyperlink{classrls_1_1_r_l_s_a1af17bddf8266944f4707ec47dc5f2b2}{testing\+\_\+prediction\+\_\+on\+\_\+different\+\_\+noise}} (self, Muffler muffler, Entity entity)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classrls_1_1_r_l_s_a6340d2b730dd9afd43a6bf0ce15df53d}\label{classrls_1_1_r_l_s_a6340d2b730dd9afd43a6bf0ce15df53d} 
+{\bfseries receiver}
+\item 
+\Hypertarget{classrls_1_1_r_l_s_addb7b9cf35bdcc7855a71ec37f7109af}\label{classrls_1_1_r_l_s_addb7b9cf35bdcc7855a71ec37f7109af} 
+{\bfseries radiator}
+\item 
+\Hypertarget{classrls_1_1_r_l_s_afcf931dd445c4f9e265dfc8577397576}\label{classrls_1_1_r_l_s_afcf931dd445c4f9e265dfc8577397576} 
+{\bfseries velocity\+\_\+measurements\+\_\+amount}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classrls_1_1_r_l_s_a7c844fc0d8c816e36e05c534cfe067e6}\label{classrls_1_1_r_l_s_a7c844fc0d8c816e36e05c534cfe067e6} 
+int {\bfseries velocity\+\_\+measurements\+\_\+amount} = 10
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{classrls_1_1_r_l_s_a536ddf6079aa519b4b80259f0c5d600c}{\+\_\+calculate\+\_\+coordinate}} (self, Entity entity, float noise)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyVerb}The class responsible for simulating the operation of the entire radar station.\end{DoxyVerb}
+ 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classrls_1_1_r_l_s_adb4b745e0e474f7c5ebaea1e38008d09}\label{classrls_1_1_r_l_s_adb4b745e0e474f7c5ebaea1e38008d09} 
+\index{rls.RLS@{rls.RLS}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!rls.RLS@{rls.RLS}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily  None rls.\+RLS.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{np.\+array}]{coordinates,  }\item[{float}]{amplification\+\_\+coefficient,  }\item[{float}]{fix\+\_\+coefficient,  }\item[{float}]{energy,  }\item[{int}]{impulse\+\_\+count }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Initialization of the radar station.
+
+:param coordinates: Coordinates of the station.
+:param amplification_coefficient: Amplification coefficient of the receiver.
+:param fix_coefficient: Fix coefficient of the receiver.
+:param energy: Energy of the radiator.
+:param impulse_count: Number of impulses for the radiator.
+\end{DoxyVerb}
+ 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classrls_1_1_r_l_s_a536ddf6079aa519b4b80259f0c5d600c}\label{classrls_1_1_r_l_s_a536ddf6079aa519b4b80259f0c5d600c} 
+\index{rls.RLS@{rls.RLS}!\_calculate\_coordinate@{\_calculate\_coordinate}}
+\index{\_calculate\_coordinate@{\_calculate\_coordinate}!rls.RLS@{rls.RLS}}
+\doxysubsubsection{\texorpdfstring{\_calculate\_coordinate()}{\_calculate\_coordinate()}}
+{\footnotesize\ttfamily  float rls.\+RLS.\+\_\+calculate\+\_\+coordinate (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{Entity}]{entity,  }\item[{float}]{noise }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\begin{DoxyVerb}Calculates coordinates based on the predicted distance to the object.
+
+:param entity: The object to which the coordinates are calculated.
+:param noise: Noise level.
+:return: Calculated coordinates.
+\end{DoxyVerb}
+ \Hypertarget{classrls_1_1_r_l_s_a6c63683e25f618ab8611c9dfb4d671ae}\label{classrls_1_1_r_l_s_a6c63683e25f618ab8611c9dfb4d671ae} 
+\index{rls.RLS@{rls.RLS}!calculate\_coordinate@{calculate\_coordinate}}
+\index{calculate\_coordinate@{calculate\_coordinate}!rls.RLS@{rls.RLS}}
+\doxysubsubsection{\texorpdfstring{calculate\_coordinate()}{calculate\_coordinate()}}
+{\footnotesize\ttfamily  np.\+array rls.\+RLS.\+calculate\+\_\+coordinate (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{Entity}]{entity,  }\item[{float}]{noise }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Calculates coordinates based on several measurements, taking an average value.
+
+:param entity: The object to which the coordinates are calculated.
+:param noise: Noise level.
+:return: Array of mean coordinates and coordinate errors.
+\end{DoxyVerb}
+ \Hypertarget{classrls_1_1_r_l_s_aab5e1d52fba7dc2820e97b901118bcbd}\label{classrls_1_1_r_l_s_aab5e1d52fba7dc2820e97b901118bcbd} 
+\index{rls.RLS@{rls.RLS}!calculate\_distance@{calculate\_distance}}
+\index{calculate\_distance@{calculate\_distance}!rls.RLS@{rls.RLS}}
+\doxysubsubsection{\texorpdfstring{calculate\_distance()}{calculate\_distance()}}
+{\footnotesize\ttfamily  float rls.\+RLS.\+calculate\+\_\+distance (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{Entity}]{entity,  }\item[{float}]{noise }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Calculates the distance based on the received and radiated signal power.
+
+:param entity: The object to which the distance is calculated.
+:param noise: Noise level.
+:return: Calculated distance.
+\end{DoxyVerb}
+ \Hypertarget{classrls_1_1_r_l_s_abc329d011321d13fc2b1f8b51112c3b6}\label{classrls_1_1_r_l_s_abc329d011321d13fc2b1f8b51112c3b6} 
+\index{rls.RLS@{rls.RLS}!calculate\_velocity@{calculate\_velocity}}
+\index{calculate\_velocity@{calculate\_velocity}!rls.RLS@{rls.RLS}}
+\doxysubsubsection{\texorpdfstring{calculate\_velocity()}{calculate\_velocity()}}
+{\footnotesize\ttfamily  np.\+array rls.\+RLS.\+calculate\+\_\+velocity (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{Entity}]{entity,  }\item[{float}]{noise,  }\item[{float}]{dt }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Calculates the speed based on several measurements, taking an average value.
+
+:param entity: The object to which the velocity is calculated.
+:param noise: Noise level.
+:param dt: Time delta.
+:return: Array of velocities.
+\end{DoxyVerb}
+ \Hypertarget{classrls_1_1_r_l_s_a626fc4b83a9287ad06b4e9d9d0e7c361}\label{classrls_1_1_r_l_s_a626fc4b83a9287ad06b4e9d9d0e7c361} 
+\index{rls.RLS@{rls.RLS}!noise\_signal@{noise\_signal}}
+\index{noise\_signal@{noise\_signal}!rls.RLS@{rls.RLS}}
+\doxysubsubsection{\texorpdfstring{noise\_signal()}{noise\_signal()}}
+{\footnotesize\ttfamily  None rls.\+RLS.\+noise\+\_\+signal (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{float}]{noise }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Squeezes the signal based on the given noise level.
+
+:param noise: Noise level.
+\end{DoxyVerb}
+ \Hypertarget{classrls_1_1_r_l_s_a1af17bddf8266944f4707ec47dc5f2b2}\label{classrls_1_1_r_l_s_a1af17bddf8266944f4707ec47dc5f2b2} 
+\index{rls.RLS@{rls.RLS}!testing\_prediction\_on\_different\_noise@{testing\_prediction\_on\_different\_noise}}
+\index{testing\_prediction\_on\_different\_noise@{testing\_prediction\_on\_different\_noise}!rls.RLS@{rls.RLS}}
+\doxysubsubsection{\texorpdfstring{testing\_prediction\_on\_different\_noise()}{testing\_prediction\_on\_different\_noise()}}
+{\footnotesize\ttfamily  list rls.\+RLS.\+testing\+\_\+prediction\+\_\+on\+\_\+different\+\_\+noise (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{Muffler}]{muffler,  }\item[{Entity}]{entity }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Tests the prediction accuracy on different noise levels.
+
+:param muffler: Muffler object for generating noise levels.
+:param entity: The object to which the prediction is tested.
+:return: List of generated noise levels and corresponding prediction errors.
+\end{DoxyVerb}
+ 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Projects/reflected-\/signal-\/simulation/project/backend/rls.\+py\end{DoxyCompactItemize}

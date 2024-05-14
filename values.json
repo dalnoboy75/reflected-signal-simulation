@@ -1,1 +1,1 @@
-{"OBJ": {"COORD": [1.0, 0.0, 0.0], "SPEED": [1.0, 0.0, 0.0], "RADIUS": 1.0}, "RLS": {"COORD": [0.0, 0.0, 0.0], "ENERGY": 1.0, "AMPL": 1.0}, "DISTORTION": 0.01, "DT": 1.0, "INPC": 10}
+{"OBJ": {"COORD": [1.0, 0.0, 0.0], "SPEED": [1.0, 0.0, 0.0], "RADIUS": 1.0}, "RLS": {"COORD": [0.0, 0.0, 0.0], "ENERGY": 1.0, "AMPL": 1.0}, "DISTORTION": 0.0001, "DT": 1.0, "INPC": 10}

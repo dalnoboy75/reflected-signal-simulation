@@ -1,0 +1,110 @@
+\doxysection{radiator.\+Radiator Class Reference}
+\hypertarget{classradiator_1_1_radiator}{}\label{classradiator_1_1_radiator}\index{radiator.Radiator@{radiator.Radiator}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+None \mbox{\hyperlink{classradiator_1_1_radiator_a0880f4fbaba73e14d0dbc21a03e95c3a}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self, np.\+array coordinates, float energy, int \mbox{\hyperlink{classradiator_1_1_radiator_abd76abf3b3dcbcc1b4fc76ae69c3f77e}{impulse\+\_\+count}})
+\item 
+float \mbox{\hyperlink{classradiator_1_1_radiator_af3f1b9a68cd04ab25effe04a8704a545}{calculate\+\_\+distance}} (self, Entity entity)
+\item 
+float \mbox{\hyperlink{classradiator_1_1_radiator_ab9255faca24b23dfe0c77fbbffd67a9e}{power}} (self)
+\item 
+float \mbox{\hyperlink{classradiator_1_1_radiator_a201a21cba4235deaa72ed11e7017b345}{wave\+\_\+length}} (self)
+\item 
+np.\+array \mbox{\hyperlink{classradiator_1_1_radiator_aa59351ac85a2f7062b70f43d9b1e559d}{position}} (self)
+\item 
+int \mbox{\hyperlink{classradiator_1_1_radiator_abd76abf3b3dcbcc1b4fc76ae69c3f77e}{impulse\+\_\+count}} (self)
+\item 
+None \mbox{\hyperlink{classradiator_1_1_radiator_a3d6f716773c96b02dc52cac4bfce593c}{emit\+\_\+signal}} (self)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classradiator_1_1_radiator_ab97a91daab4ecdbbaccdbab9e580471f}\label{classradiator_1_1_radiator_ab97a91daab4ecdbbaccdbab9e580471f} 
+{\bfseries \+\_\+power}
+\item 
+\Hypertarget{classradiator_1_1_radiator_ad212eee64328cb99bf341942a2898a7d}\label{classradiator_1_1_radiator_ad212eee64328cb99bf341942a2898a7d} 
+{\bfseries \+\_\+wave\+\_\+length}
+\item 
+\Hypertarget{classradiator_1_1_radiator_a2ddf13fcdc43c215fd434ceb4a333ad8}\label{classradiator_1_1_radiator_a2ddf13fcdc43c215fd434ceb4a333ad8} 
+{\bfseries \+\_\+coordinates}
+\item 
+\Hypertarget{classradiator_1_1_radiator_af5339b6fb37cb9f25a22fe350515e002}\label{classradiator_1_1_radiator_af5339b6fb37cb9f25a22fe350515e002} 
+{\bfseries \+\_\+energy}
+\item 
+\Hypertarget{classradiator_1_1_radiator_a2b2ad1fae313b8f53ccd58c33ec2bd78}\label{classradiator_1_1_radiator_a2b2ad1fae313b8f53ccd58c33ec2bd78} 
+{\bfseries \+\_\+impulse\+\_\+count}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyVerb}Class for simulating the signal source and its characteristics.\end{DoxyVerb}
+ 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classradiator_1_1_radiator_a0880f4fbaba73e14d0dbc21a03e95c3a}\label{classradiator_1_1_radiator_a0880f4fbaba73e14d0dbc21a03e95c3a} 
+\index{radiator.Radiator@{radiator.Radiator}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!radiator.Radiator@{radiator.Radiator}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily  None radiator.\+Radiator.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{np.\+array}]{coordinates,  }\item[{float}]{energy,  }\item[{int}]{impulse\+\_\+count }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Initialization of the signal source.
+
+:param coordinates: Coordinates of the signal source.
+:param energy: Energy of the signal source.
+:param impulse_count: Number of impulses.
+\end{DoxyVerb}
+ 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classradiator_1_1_radiator_af3f1b9a68cd04ab25effe04a8704a545}\label{classradiator_1_1_radiator_af3f1b9a68cd04ab25effe04a8704a545} 
+\index{radiator.Radiator@{radiator.Radiator}!calculate\_distance@{calculate\_distance}}
+\index{calculate\_distance@{calculate\_distance}!radiator.Radiator@{radiator.Radiator}}
+\doxysubsubsection{\texorpdfstring{calculate\_distance()}{calculate\_distance()}}
+{\footnotesize\ttfamily  float radiator.\+Radiator.\+calculate\+\_\+distance (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{Entity}]{entity }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Calculation of the distance between the signal source and the object.
+
+:param entity: The object to which the distance is calculated.
+:return: Distance between the signal source and the object.
+\end{DoxyVerb}
+ \Hypertarget{classradiator_1_1_radiator_a3d6f716773c96b02dc52cac4bfce593c}\label{classradiator_1_1_radiator_a3d6f716773c96b02dc52cac4bfce593c} 
+\index{radiator.Radiator@{radiator.Radiator}!emit\_signal@{emit\_signal}}
+\index{emit\_signal@{emit\_signal}!radiator.Radiator@{radiator.Radiator}}
+\doxysubsubsection{\texorpdfstring{emit\_signal()}{emit\_signal()}}
+{\footnotesize\ttfamily  None radiator.\+Radiator.\+emit\+\_\+signal (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Method for emitting the signal.\end{DoxyVerb}
+ \Hypertarget{classradiator_1_1_radiator_abd76abf3b3dcbcc1b4fc76ae69c3f77e}\label{classradiator_1_1_radiator_abd76abf3b3dcbcc1b4fc76ae69c3f77e} 
+\index{radiator.Radiator@{radiator.Radiator}!impulse\_count@{impulse\_count}}
+\index{impulse\_count@{impulse\_count}!radiator.Radiator@{radiator.Radiator}}
+\doxysubsubsection{\texorpdfstring{impulse\_count()}{impulse\_count()}}
+{\footnotesize\ttfamily  int radiator.\+Radiator.\+impulse\+\_\+count (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Returns the number of impulses of the signal source.\end{DoxyVerb}
+ \Hypertarget{classradiator_1_1_radiator_aa59351ac85a2f7062b70f43d9b1e559d}\label{classradiator_1_1_radiator_aa59351ac85a2f7062b70f43d9b1e559d} 
+\index{radiator.Radiator@{radiator.Radiator}!position@{position}}
+\index{position@{position}!radiator.Radiator@{radiator.Radiator}}
+\doxysubsubsection{\texorpdfstring{position()}{position()}}
+{\footnotesize\ttfamily  np.\+array radiator.\+Radiator.\+position (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Returns the coordinates of the signal source.\end{DoxyVerb}
+ \Hypertarget{classradiator_1_1_radiator_ab9255faca24b23dfe0c77fbbffd67a9e}\label{classradiator_1_1_radiator_ab9255faca24b23dfe0c77fbbffd67a9e} 
+\index{radiator.Radiator@{radiator.Radiator}!power@{power}}
+\index{power@{power}!radiator.Radiator@{radiator.Radiator}}
+\doxysubsubsection{\texorpdfstring{power()}{power()}}
+{\footnotesize\ttfamily  float radiator.\+Radiator.\+power (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Returns the power of the signal source.\end{DoxyVerb}
+ \Hypertarget{classradiator_1_1_radiator_a201a21cba4235deaa72ed11e7017b345}\label{classradiator_1_1_radiator_a201a21cba4235deaa72ed11e7017b345} 
+\index{radiator.Radiator@{radiator.Radiator}!wave\_length@{wave\_length}}
+\index{wave\_length@{wave\_length}!radiator.Radiator@{radiator.Radiator}}
+\doxysubsubsection{\texorpdfstring{wave\_length()}{wave\_length()}}
+{\footnotesize\ttfamily  float radiator.\+Radiator.\+wave\+\_\+length (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Returns the wavelength of the signal source.\end{DoxyVerb}
+ 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Projects/reflected-\/signal-\/simulation/project/backend/radiator.\+py\end{DoxyCompactItemize}

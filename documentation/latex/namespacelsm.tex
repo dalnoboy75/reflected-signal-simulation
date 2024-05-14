@@ -1,0 +1,51 @@
+\doxysection{lsm Namespace Reference}
+\hypertarget{namespacelsm}{}\label{namespacelsm}\index{lsm@{lsm}}
+
+
+Contains class \doxylink{classlsm_1_1_l_s_m_description}{LSMDescription}.  
+
+
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classlsm_1_1_l_s_m_description}{LSMDescription}}
+\item 
+class \mbox{\hyperlink{classlsm_1_1_m_s_e_description}{MSEDescription}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classlsm_1_1_l_s_m_description}{LSMDescription}} \mbox{\hyperlink{namespacelsm_acf030dae1c6cbc045e0438558348d4b7}{get\+\_\+lsm\+\_\+description}} (np.\+array abscissa, np.\+array ordinates)
+\item 
+\mbox{\hyperlink{classlsm_1_1_m_s_e_description}{MSEDescription}} \mbox{\hyperlink{namespacelsm_a1cf797096e8ee9b05e8191498ed54e5f}{get\+\_\+mse}} (np.\+array measurements)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Contains class \doxylink{classlsm_1_1_l_s_m_description}{LSMDescription}. 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{namespacelsm_acf030dae1c6cbc045e0438558348d4b7}\label{namespacelsm_acf030dae1c6cbc045e0438558348d4b7} 
+\index{lsm@{lsm}!get\_lsm\_description@{get\_lsm\_description}}
+\index{get\_lsm\_description@{get\_lsm\_description}!lsm@{lsm}}
+\doxysubsubsection{\texorpdfstring{get\_lsm\_description()}{get\_lsm\_description()}}
+{\footnotesize\ttfamily  \mbox{\hyperlink{classlsm_1_1_l_s_m_description}{LSMDescription}} lsm.\+get\+\_\+lsm\+\_\+description (\begin{DoxyParamCaption}\item[{np.\+array}]{abscissa,  }\item[{np.\+array}]{ordinates }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Calculate LSM (the Least Squares Method) description.
+
+:param abscissa: Array of x-coordinates.
+:param ordinates: Array of y-coordinates.
+:return: LSMDescription object with incline and shift.
+\end{DoxyVerb}
+ \Hypertarget{namespacelsm_a1cf797096e8ee9b05e8191498ed54e5f}\label{namespacelsm_a1cf797096e8ee9b05e8191498ed54e5f} 
+\index{lsm@{lsm}!get\_mse@{get\_mse}}
+\index{get\_mse@{get\_mse}!lsm@{lsm}}
+\doxysubsubsection{\texorpdfstring{get\_mse()}{get\_mse()}}
+{\footnotesize\ttfamily  \mbox{\hyperlink{classlsm_1_1_m_s_e_description}{MSEDescription}} lsm.\+get\+\_\+mse (\begin{DoxyParamCaption}\item[{np.\+array}]{measurements }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Calculate MSE (Mean Squared Error) description.
+
+:param measurements: Array of measurements.
+:return: MSEDescription object with mean and error.
+\end{DoxyVerb}
+ 

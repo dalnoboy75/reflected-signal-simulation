@@ -1,0 +1,79 @@
+\doxysection{entity.\+Entity Class Reference}
+\hypertarget{classentity_1_1_entity}{}\label{classentity_1_1_entity}\index{entity.Entity@{entity.Entity}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+None \mbox{\hyperlink{classentity_1_1_entity_af624d0a87756c82d7f50f57b55573f20}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self, np.\+array coordinates, float radius, np.\+array velocity)
+\item 
+np.\+array \mbox{\hyperlink{classentity_1_1_entity_aa2534751595da1c47504a2d0d82703e9}{position}} (self)
+\item 
+None \mbox{\hyperlink{classentity_1_1_entity_adab779fa9ff86cedf0b5f9cbf06bc608}{update\+\_\+position}} (self, float dt)
+\item 
+float \mbox{\hyperlink{classentity_1_1_entity_a9976d8bf3caf6247e271824ba0223c9f}{reflection\+\_\+surface}} (self)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classentity_1_1_entity_a1ffeb9e2a44cd3d5d2191ab472da3388}\label{classentity_1_1_entity_a1ffeb9e2a44cd3d5d2191ab472da3388} 
+{\bfseries \+\_\+coordinates}
+\item 
+\Hypertarget{classentity_1_1_entity_af6b7fb50e350d4c4e191142a9560023b}\label{classentity_1_1_entity_af6b7fb50e350d4c4e191142a9560023b} 
+{\bfseries \+\_\+radius}
+\item 
+\Hypertarget{classentity_1_1_entity_ae2259a8c676c376a7157214f2e487110}\label{classentity_1_1_entity_ae2259a8c676c376a7157214f2e487110} 
+{\bfseries \+\_\+velocity}
+\item 
+\Hypertarget{classentity_1_1_entity_a1ac91bbeaee938ca514d3682b2c6bce7}\label{classentity_1_1_entity_a1ac91bbeaee938ca514d3682b2c6bce7} 
+{\bfseries \+\_\+reflection\+\_\+surface}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyVerb}The class responsible for simulation of the object, its characteristics and behavior.\end{DoxyVerb}
+ 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classentity_1_1_entity_af624d0a87756c82d7f50f57b55573f20}\label{classentity_1_1_entity_af624d0a87756c82d7f50f57b55573f20} 
+\index{entity.Entity@{entity.Entity}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!entity.Entity@{entity.Entity}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily  None entity.\+Entity.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{np.\+array}]{coordinates,  }\item[{float}]{radius,  }\item[{np.\+array}]{velocity }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Initialization of the object.
+
+:param coordinates: Initial coordinates of the object.
+:param radius: Radius of the object.
+:param velocity: Velocity vector of the object.
+\end{DoxyVerb}
+ 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classentity_1_1_entity_aa2534751595da1c47504a2d0d82703e9}\label{classentity_1_1_entity_aa2534751595da1c47504a2d0d82703e9} 
+\index{entity.Entity@{entity.Entity}!position@{position}}
+\index{position@{position}!entity.Entity@{entity.Entity}}
+\doxysubsubsection{\texorpdfstring{position()}{position()}}
+{\footnotesize\ttfamily  np.\+array entity.\+Entity.\+position (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Returns the current coordinates of the object.\end{DoxyVerb}
+ \Hypertarget{classentity_1_1_entity_a9976d8bf3caf6247e271824ba0223c9f}\label{classentity_1_1_entity_a9976d8bf3caf6247e271824ba0223c9f} 
+\index{entity.Entity@{entity.Entity}!reflection\_surface@{reflection\_surface}}
+\index{reflection\_surface@{reflection\_surface}!entity.Entity@{entity.Entity}}
+\doxysubsubsection{\texorpdfstring{reflection\_surface()}{reflection\_surface()}}
+{\footnotesize\ttfamily  float entity.\+Entity.\+reflection\+\_\+surface (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Returns the reflection surface area of the object.\end{DoxyVerb}
+ \Hypertarget{classentity_1_1_entity_adab779fa9ff86cedf0b5f9cbf06bc608}\label{classentity_1_1_entity_adab779fa9ff86cedf0b5f9cbf06bc608} 
+\index{entity.Entity@{entity.Entity}!update\_position@{update\_position}}
+\index{update\_position@{update\_position}!entity.Entity@{entity.Entity}}
+\doxysubsubsection{\texorpdfstring{update\_position()}{update\_position()}}
+{\footnotesize\ttfamily  None entity.\+Entity.\+update\+\_\+position (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{float}]{dt }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Updates the position of the object based on its velocity and time delta.
+
+:param dt: Time delta for updating the position.
+\end{DoxyVerb}
+ 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Projects/reflected-\/signal-\/simulation/project/backend/entity.\+py\end{DoxyCompactItemize}

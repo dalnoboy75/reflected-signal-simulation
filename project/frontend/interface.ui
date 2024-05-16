@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1020</width>
-    <height>736</height>
+    <height>752</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -24,6 +24,11 @@
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(232, 228, 219);
+font: 300 15pt &quot;Corbel &quot;;
+border-radius: 15px;</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QPushButton" name="simulatePushButton">
@@ -49,9 +54,14 @@
     </property>
     <property name="font">
      <font>
-      <pointsize>17</pointsize>
-      <italic>true</italic>
+      <family>Corbel </family>
+      <pointsize>15</pointsize>
+      <italic>false</italic>
+      <bold>false</bold>
      </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(219, 199, 166);</string>
     </property>
     <property name="text">
      <string>Simulate</string>
@@ -63,7 +73,7 @@
       <x>0</x>
       <y>0</y>
       <width>1029</width>
-      <height>608</height>
+      <height>614</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout" rowstretch="0,0,0,0,0,0,0,0,0">
@@ -86,12 +96,23 @@
        </property>
        <property name="font">
         <font>
-         <pointsize>20</pointsize>
-         <bold>true</bold>
+         <family>Corbel </family>
+         <pointsize>15</pointsize>
+         <italic>false</italic>
+         <bold>false</bold>
         </font>
+       </property>
+       <property name="layoutDirection">
+        <enum>Qt::LeftToRight</enum>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(219, 199, 166);</string>
        </property>
        <property name="text">
         <string>Object:</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
        </property>
        <property name="readOnly">
         <bool>true</bool>
@@ -114,15 +135,23 @@
        </property>
        <property name="font">
         <font>
-         <pointsize>20</pointsize>
-         <bold>true</bold>
+         <family>Corbel </family>
+         <pointsize>15</pointsize>
+         <italic>false</italic>
+         <bold>false</bold>
         </font>
        </property>
+       <property name="layoutDirection">
+        <enum>Qt::LeftToRight</enum>
+       </property>
        <property name="styleSheet">
-        <string notr="true"/>
+        <string notr="true">background-color: rgb(219, 199, 166);</string>
        </property>
        <property name="text">
         <string>Station:</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
        </property>
        <property name="readOnly">
         <bool>true</bool>
@@ -162,8 +191,14 @@
          </property>
          <property name="font">
           <font>
+           <family>Corbel </family>
            <pointsize>15</pointsize>
+           <italic>false</italic>
+           <bold>false</bold>
           </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(212, 188, 178);</string>
          </property>
          <property name="text">
           <string>Coords:</string>
@@ -311,9 +346,14 @@
        </property>
        <property name="font">
         <font>
-         <pointsize>21</pointsize>
-         <bold>true</bold>
+         <family>Corbel </family>
+         <pointsize>15</pointsize>
+         <italic>false</italic>
+         <bold>false</bold>
         </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"/>
        </property>
        <property name="text">
         <string>NULL</string>
@@ -347,8 +387,14 @@
          </property>
          <property name="font">
           <font>
+           <family>Corbel </family>
            <pointsize>15</pointsize>
+           <italic>false</italic>
+           <bold>false</bold>
           </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(212, 188, 178);</string>
          </property>
          <property name="text">
           <string>Amplification:</string>
@@ -405,7 +451,7 @@
        </property>
        <property name="minimumSize">
         <size>
-         <width>120</width>
+         <width>150</width>
          <height>40</height>
         </size>
        </property>
@@ -417,11 +463,20 @@
        </property>
        <property name="font">
         <font>
+         <family>Corbel </family>
          <pointsize>15</pointsize>
+         <italic>false</italic>
+         <bold>false</bold>
         </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(219, 199, 166);</string>
        </property>
        <property name="text">
         <string>Signal:</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
        </property>
        <property name="readOnly">
         <bool>true</bool>
@@ -455,8 +510,14 @@
          </property>
          <property name="font">
           <font>
+           <family>Corbel </family>
            <pointsize>15</pointsize>
+           <italic>false</italic>
+           <bold>false</bold>
           </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(212, 188, 178);</string>
          </property>
          <property name="text">
           <string>Coords:</string>
@@ -617,7 +678,10 @@
        </property>
        <property name="font">
         <font>
-         <pointsize>10</pointsize>
+         <family>Corbel </family>
+         <pointsize>15</pointsize>
+         <italic>false</italic>
+         <bold>false</bold>
         </font>
        </property>
        <property name="decimals">
@@ -643,8 +707,14 @@
          </property>
          <property name="font">
           <font>
+           <family>Corbel </family>
            <pointsize>15</pointsize>
+           <italic>false</italic>
+           <bold>false</bold>
           </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(212, 188, 178);</string>
          </property>
          <property name="text">
           <string>Radius:</string>
@@ -715,8 +785,14 @@
          </property>
          <property name="font">
           <font>
+           <family>Corbel </family>
            <pointsize>15</pointsize>
+           <italic>false</italic>
+           <bold>false</bold>
           </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(212, 188, 178);</string>
          </property>
          <property name="text">
           <string>Speed:</string>
@@ -860,8 +936,14 @@
          </property>
          <property name="font">
           <font>
+           <family>Corbel </family>
            <pointsize>15</pointsize>
+           <italic>false</italic>
+           <bold>false</bold>
           </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(212, 188, 178);</string>
          </property>
          <property name="text">
           <string>Energy:</string>
@@ -923,8 +1005,14 @@
          </property>
          <property name="font">
           <font>
+           <family>Corbel </family>
            <pointsize>15</pointsize>
+           <italic>false</italic>
+           <bold>false</bold>
           </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(212, 188, 178);</string>
          </property>
          <property name="text">
           <string>Impulse count:</string>
@@ -975,8 +1063,14 @@
        </property>
        <property name="font">
         <font>
-         <pointsize>10</pointsize>
+         <family>Corbel </family>
+         <pointsize>15</pointsize>
+         <italic>false</italic>
+         <bold>false</bold>
         </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"/>
        </property>
        <property name="decimals">
         <number>4</number>
@@ -1002,8 +1096,10 @@
        </property>
        <property name="font">
         <font>
-         <pointsize>21</pointsize>
-         <bold>true</bold>
+         <family>Corbel </family>
+         <pointsize>15</pointsize>
+         <italic>false</italic>
+         <bold>false</bold>
         </font>
        </property>
        <property name="text">
@@ -1030,12 +1126,23 @@
        </property>
        <property name="font">
         <font>
-         <pointsize>23</pointsize>
-         <bold>true</bold>
+         <family>Corbel </family>
+         <pointsize>15</pointsize>
+         <italic>false</italic>
+         <bold>false</bold>
         </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(195, 191, 179);</string>
        </property>
        <property name="text">
         <string>Speed:</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <property name="readOnly">
+        <bool>true</bool>
        </property>
       </widget>
      </item>
@@ -1055,12 +1162,23 @@
        </property>
        <property name="font">
         <font>
-         <pointsize>23</pointsize>
-         <bold>true</bold>
+         <family>Corbel </family>
+         <pointsize>15</pointsize>
+         <italic>false</italic>
+         <bold>false</bold>
         </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(195, 191, 179);</string>
        </property>
        <property name="text">
         <string>Distance:</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <property name="readOnly">
+        <bool>true</bool>
        </property>
       </widget>
      </item>
@@ -1099,8 +1217,14 @@
        </property>
        <property name="font">
         <font>
+         <family>Corbel </family>
          <pointsize>15</pointsize>
+         <italic>false</italic>
+         <bold>false</bold>
         </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(212, 188, 178);</string>
        </property>
        <property name="text">
         <string>Distortion (%):</string>
@@ -1135,8 +1259,14 @@
        </property>
        <property name="font">
         <font>
+         <family>Corbel </family>
          <pointsize>15</pointsize>
+         <italic>false</italic>
+         <bold>false</bold>
         </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(212, 188, 178);</string>
        </property>
        <property name="text">
         <string>Delta time:</string>
@@ -1162,12 +1292,23 @@
        </property>
        <property name="font">
         <font>
-         <pointsize>17</pointsize>
-         <bold>true</bold>
+         <family>Corbel </family>
+         <pointsize>15</pointsize>
+         <italic>false</italic>
+         <bold>false</bold>
         </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(195, 191, 179);</string>
        </property>
        <property name="text">
         <string>Coordinates:</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <property name="readOnly">
+        <bool>true</bool>
        </property>
       </widget>
      </item>
@@ -1187,8 +1328,10 @@
        </property>
        <property name="font">
         <font>
-         <pointsize>18</pointsize>
-         <bold>true</bold>
+         <family>Corbel </family>
+         <pointsize>15</pointsize>
+         <italic>false</italic>
+         <bold>false</bold>
         </font>
        </property>
        <property name="text">
@@ -1208,7 +1351,7 @@
      <x>0</x>
      <y>0</y>
      <width>1020</width>
-     <height>22</height>
+     <height>29</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuPlots">

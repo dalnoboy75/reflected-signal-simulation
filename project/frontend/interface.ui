@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1020</width>
-    <height>683</height>
+    <height>736</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -29,8 +29,8 @@
    <widget class="QPushButton" name="simulatePushButton">
     <property name="geometry">
      <rect>
-      <x>450</x>
-      <y>560</y>
+      <x>440</x>
+      <y>620</y>
       <width>150</width>
       <height>70</height>
      </rect>
@@ -63,84 +63,15 @@
       <x>0</x>
       <y>0</y>
       <width>1029</width>
-      <height>538</height>
+      <height>608</height>
      </rect>
     </property>
-    <layout class="QGridLayout" name="gridLayout" rowstretch="0,0,0,0,0,0,0,0">
+    <layout class="QGridLayout" name="gridLayout" rowstretch="0,0,0,0,0,0,0,0,0">
      <property name="spacing">
       <number>10</number>
      </property>
-     <item row="0" column="3">
-      <layout class="QVBoxLayout" name="verticalLayout">
-       <property name="leftMargin">
-        <number>0</number>
-       </property>
-       <property name="rightMargin">
-        <number>0</number>
-       </property>
-       <item>
-        <widget class="QLineEdit" name="lineEdit_4">
-         <property name="maximumSize">
-          <size>
-           <width>120</width>
-           <height>50</height>
-          </size>
-         </property>
-         <property name="font">
-          <font>
-           <pointsize>15</pointsize>
-          </font>
-         </property>
-         <property name="text">
-          <string>Radius:</string>
-         </property>
-         <property name="readOnly">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_7">
-         <property name="topMargin">
-          <number>5</number>
-         </property>
-         <property name="rightMargin">
-          <number>155</number>
-         </property>
-         <property name="bottomMargin">
-          <number>5</number>
-         </property>
-         <item>
-          <widget class="QDoubleSpinBox" name="obj_radius">
-           <property name="sizePolicy">
-            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-             <horstretch>0</horstretch>
-             <verstretch>0</verstretch>
-            </sizepolicy>
-           </property>
-           <property name="minimumSize">
-            <size>
-             <width>80</width>
-             <height>30</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>90</width>
-             <height>30</height>
-            </size>
-           </property>
-           <property name="decimals">
-            <number>3</number>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-      </layout>
-     </item>
-     <item row="7" column="0">
-      <widget class="QLineEdit" name="lineEdit_13">
+     <item row="0" column="0">
+      <widget class="QLineEdit" name="lineEdit">
        <property name="minimumSize">
         <size>
          <width>150</width>
@@ -155,12 +86,345 @@
        </property>
        <property name="font">
         <font>
-         <pointsize>23</pointsize>
+         <pointsize>20</pointsize>
          <bold>true</bold>
         </font>
        </property>
        <property name="text">
-        <string>Distance:</string>
+        <string>Object:</string>
+       </property>
+       <property name="readOnly">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0">
+      <widget class="QLineEdit" name="lineEdit_5">
+       <property name="minimumSize">
+        <size>
+         <width>150</width>
+         <height>100</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>150</width>
+         <height>100</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>20</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
+       <property name="text">
+        <string>Station:</string>
+       </property>
+       <property name="readOnly">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <layout class="QVBoxLayout" name="verticalLayout_5">
+       <property name="sizeConstraint">
+        <enum>QLayout::SetDefaultConstraint</enum>
+       </property>
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>5</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>5</number>
+       </property>
+       <item>
+        <widget class="QLineEdit" name="lineEdit_6">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>120</width>
+           <height>50</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>15</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>Coords:</string>
+         </property>
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_5">
+         <property name="spacing">
+          <number>30</number>
+         </property>
+         <property name="rightMargin">
+          <number>0</number>
+         </property>
+         <item>
+          <widget class="QDoubleSpinBox" name="station_coords_x">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>80</width>
+             <height>30</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>80</width>
+             <height>30</height>
+            </size>
+           </property>
+           <property name="decimals">
+            <number>3</number>
+           </property>
+           <property name="minimum">
+            <double>-99.989999999999995</double>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QDoubleSpinBox" name="station_coords_y">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>80</width>
+             <height>30</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>80</width>
+             <height>30</height>
+            </size>
+           </property>
+           <property name="decimals">
+            <number>3</number>
+           </property>
+           <property name="minimum">
+            <double>-99.989999999999995</double>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QDoubleSpinBox" name="station_coords_z">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>80</width>
+             <height>30</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>80</width>
+             <height>30</height>
+            </size>
+           </property>
+           <property name="decimals">
+            <number>3</number>
+           </property>
+           <property name="minimum">
+            <double>-99.989999999999995</double>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </item>
+     <item row="1" column="3">
+      <widget class="Line" name="line_3">
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(235, 238, 255);</string>
+       </property>
+       <property name="lineWidth">
+        <number>3</number>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="1">
+      <widget class="Line" name="line_4">
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(235, 238, 255);</string>
+       </property>
+       <property name="lineWidth">
+        <number>3</number>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="1">
+      <widget class="QLabel" name="distance_label">
+       <property name="minimumSize">
+        <size>
+         <width>200</width>
+         <height>80</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>200</width>
+         <height>80</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>21</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>NULL</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="1">
+      <layout class="QVBoxLayout" name="verticalLayout_11">
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>5</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>5</number>
+       </property>
+       <item>
+        <widget class="QLineEdit" name="lineEdit_9">
+         <property name="maximumSize">
+          <size>
+           <width>150</width>
+           <height>50</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>15</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>Amplification:</string>
+         </property>
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_12">
+         <property name="rightMargin">
+          <number>250</number>
+         </property>
+         <item>
+          <widget class="QDoubleSpinBox" name="station_amplification">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>90</width>
+             <height>30</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>80</width>
+             <height>30</height>
+            </size>
+           </property>
+           <property name="decimals">
+            <number>3</number>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </item>
+     <item row="5" column="0">
+      <widget class="QLineEdit" name="lineEdit_8">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>120</width>
+         <height>40</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>120</width>
+         <height>40</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>15</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Signal:</string>
+       </property>
+       <property name="readOnly">
+        <bool>true</bool>
        </property>
       </widget>
      </item>
@@ -311,19 +575,6 @@
        </property>
       </widget>
      </item>
-     <item row="4" column="3">
-      <widget class="Line" name="line_6">
-       <property name="styleSheet">
-        <string notr="true">background-color: rgb(235, 238, 255);</string>
-       </property>
-       <property name="lineWidth">
-        <number>3</number>
-       </property>
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-      </widget>
-     </item>
      <item row="5" column="1">
       <widget class="QComboBox" name="comboBox">
        <property name="sizePolicy">
@@ -350,111 +601,8 @@
        </item>
       </widget>
      </item>
-     <item row="1" column="3">
-      <widget class="Line" name="line_3">
-       <property name="styleSheet">
-        <string notr="true">background-color: rgb(235, 238, 255);</string>
-       </property>
-       <property name="lineWidth">
-        <number>3</number>
-       </property>
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-      </widget>
-     </item>
-     <item row="7" column="3">
-      <widget class="QLabel" name="speed_label">
-       <property name="minimumSize">
-        <size>
-         <width>200</width>
-         <height>100</height>
-        </size>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>200</width>
-         <height>100</height>
-        </size>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>21</pointsize>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="text">
-        <string>NULL</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="0">
-      <widget class="QLineEdit" name="lineEdit">
-       <property name="minimumSize">
-        <size>
-         <width>150</width>
-         <height>100</height>
-        </size>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>150</width>
-         <height>100</height>
-        </size>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>20</pointsize>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="text">
-        <string>Object:</string>
-       </property>
-       <property name="readOnly">
-        <bool>true</bool>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="0">
-      <widget class="QLineEdit" name="lineEdit_5">
-       <property name="minimumSize">
-        <size>
-         <width>150</width>
-         <height>100</height>
-        </size>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>150</width>
-         <height>100</height>
-        </size>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>20</pointsize>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true"/>
-       </property>
-       <property name="text">
-        <string>Station:</string>
-       </property>
-       <property name="readOnly">
-        <bool>true</bool>
-       </property>
-      </widget>
-     </item>
-     <item row="5" column="0">
-      <widget class="QLineEdit" name="lineEdit_8">
-       <property name="enabled">
-        <bool>true</bool>
-       </property>
+     <item row="6" column="1">
+      <widget class="QDoubleSpinBox" name="station_delta">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
          <horstretch>0</horstretch>
@@ -463,134 +611,30 @@
        </property>
        <property name="minimumSize">
         <size>
-         <width>120</width>
-         <height>40</height>
-        </size>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>120</width>
-         <height>40</height>
+         <width>150</width>
+         <height>30</height>
         </size>
        </property>
        <property name="font">
         <font>
-         <pointsize>15</pointsize>
+         <pointsize>10</pointsize>
         </font>
        </property>
-       <property name="text">
-        <string>Signal:</string>
-       </property>
-       <property name="readOnly">
-        <bool>true</bool>
+       <property name="decimals">
+        <number>4</number>
        </property>
       </widget>
      </item>
-     <item row="1" column="1">
-      <widget class="Line" name="line">
-       <property name="styleSheet">
-        <string notr="true">background-color: rgb(235, 238, 255);</string>
-       </property>
-       <property name="lineWidth">
-        <number>3</number>
-       </property>
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-      </widget>
-     </item>
-     <item row="4" column="2">
-      <widget class="Line" name="line_5">
-       <property name="styleSheet">
-        <string notr="true">background-color: rgb(235, 238, 255);</string>
-       </property>
-       <property name="lineWidth">
-        <number>3</number>
-       </property>
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="2">
-      <layout class="QVBoxLayout" name="verticalLayout_6">
-       <property name="topMargin">
-        <number>5</number>
-       </property>
-       <property name="bottomMargin">
-        <number>5</number>
-       </property>
-       <item>
-        <widget class="QLineEdit" name="lineEdit_7">
-         <property name="maximumSize">
-          <size>
-           <width>150</width>
-           <height>50</height>
-          </size>
-         </property>
-         <property name="font">
-          <font>
-           <pointsize>15</pointsize>
-          </font>
-         </property>
-         <property name="text">
-          <string>Impulse count:</string>
-         </property>
-         <property name="readOnly">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_6">
-         <property name="spacing">
-          <number>10</number>
-         </property>
-         <property name="rightMargin">
-          <number>167</number>
-         </property>
-         <item>
-          <widget class="QSpinBox" name="impulse_count">
-           <property name="minimumSize">
-            <size>
-             <width>90</width>
-             <height>30</height>
-            </size>
-           </property>
-           <property name="minimum">
-            <number>1</number>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-      </layout>
-     </item>
-     <item row="2" column="1">
-      <layout class="QVBoxLayout" name="verticalLayout_5">
-       <property name="sizeConstraint">
-        <enum>QLayout::SetDefaultConstraint</enum>
-       </property>
+     <item row="0" column="3">
+      <layout class="QVBoxLayout" name="verticalLayout">
        <property name="leftMargin">
         <number>0</number>
-       </property>
-       <property name="topMargin">
-        <number>5</number>
        </property>
        <property name="rightMargin">
         <number>0</number>
        </property>
-       <property name="bottomMargin">
-        <number>5</number>
-       </property>
        <item>
-        <widget class="QLineEdit" name="lineEdit_6">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
+        <widget class="QLineEdit" name="lineEdit_4">
          <property name="maximumSize">
           <size>
            <width>120</width>
@@ -603,7 +647,7 @@
           </font>
          </property>
          <property name="text">
-          <string>Coords:</string>
+          <string>Radius:</string>
          </property>
          <property name="readOnly">
           <bool>true</bool>
@@ -611,137 +655,18 @@
         </widget>
        </item>
        <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_5">
-         <property name="spacing">
-          <number>30</number>
+        <layout class="QHBoxLayout" name="horizontalLayout_7">
+         <property name="topMargin">
+          <number>5</number>
          </property>
          <property name="rightMargin">
-          <number>0</number>
+          <number>155</number>
+         </property>
+         <property name="bottomMargin">
+          <number>5</number>
          </property>
          <item>
-          <widget class="QDoubleSpinBox" name="station_coords_x">
-           <property name="sizePolicy">
-            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-             <horstretch>0</horstretch>
-             <verstretch>0</verstretch>
-            </sizepolicy>
-           </property>
-           <property name="minimumSize">
-            <size>
-             <width>80</width>
-             <height>30</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>80</width>
-             <height>30</height>
-            </size>
-           </property>
-           <property name="decimals">
-            <number>3</number>
-           </property>
-           <property name="minimum">
-            <double>-99.989999999999995</double>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QDoubleSpinBox" name="station_coords_y">
-           <property name="sizePolicy">
-            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-             <horstretch>0</horstretch>
-             <verstretch>0</verstretch>
-            </sizepolicy>
-           </property>
-           <property name="minimumSize">
-            <size>
-             <width>80</width>
-             <height>30</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>80</width>
-             <height>30</height>
-            </size>
-           </property>
-           <property name="decimals">
-            <number>3</number>
-           </property>
-           <property name="minimum">
-            <double>-99.989999999999995</double>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QDoubleSpinBox" name="station_coords_z">
-           <property name="sizePolicy">
-            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-             <horstretch>0</horstretch>
-             <verstretch>0</verstretch>
-            </sizepolicy>
-           </property>
-           <property name="minimumSize">
-            <size>
-             <width>80</width>
-             <height>30</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>80</width>
-             <height>30</height>
-            </size>
-           </property>
-           <property name="decimals">
-            <number>3</number>
-           </property>
-           <property name="minimum">
-            <double>-99.989999999999995</double>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-      </layout>
-     </item>
-     <item row="2" column="3">
-      <layout class="QVBoxLayout" name="verticalLayout_8">
-       <property name="topMargin">
-        <number>5</number>
-       </property>
-       <property name="bottomMargin">
-        <number>5</number>
-       </property>
-       <item>
-        <widget class="QLineEdit" name="lineEdit_10">
-         <property name="maximumSize">
-          <size>
-           <width>120</width>
-           <height>50</height>
-          </size>
-         </property>
-         <property name="font">
-          <font>
-           <pointsize>15</pointsize>
-          </font>
-         </property>
-         <property name="text">
-          <string>Energy:</string>
-         </property>
-         <property name="readOnly">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_10">
-         <property name="rightMargin">
-          <number>153</number>
-         </property>
-         <item>
-          <widget class="QDoubleSpinBox" name="station_energy">
+          <widget class="QDoubleSpinBox" name="obj_radius">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
              <horstretch>0</horstretch>
@@ -891,6 +816,149 @@
        </item>
       </layout>
      </item>
+     <item row="4" column="2">
+      <widget class="Line" name="line_5">
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(235, 238, 255);</string>
+       </property>
+       <property name="lineWidth">
+        <number>3</number>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="Line" name="line">
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(235, 238, 255);</string>
+       </property>
+       <property name="lineWidth">
+        <number>3</number>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="3">
+      <layout class="QVBoxLayout" name="verticalLayout_8">
+       <property name="topMargin">
+        <number>5</number>
+       </property>
+       <property name="bottomMargin">
+        <number>5</number>
+       </property>
+       <item>
+        <widget class="QLineEdit" name="lineEdit_10">
+         <property name="maximumSize">
+          <size>
+           <width>120</width>
+           <height>50</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>15</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>Energy:</string>
+         </property>
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_10">
+         <property name="rightMargin">
+          <number>153</number>
+         </property>
+         <item>
+          <widget class="QDoubleSpinBox" name="station_energy">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>80</width>
+             <height>30</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>90</width>
+             <height>30</height>
+            </size>
+           </property>
+           <property name="decimals">
+            <number>3</number>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </item>
+     <item row="2" column="2">
+      <layout class="QVBoxLayout" name="verticalLayout_6">
+       <property name="topMargin">
+        <number>5</number>
+       </property>
+       <property name="bottomMargin">
+        <number>5</number>
+       </property>
+       <item>
+        <widget class="QLineEdit" name="lineEdit_7">
+         <property name="maximumSize">
+          <size>
+           <width>150</width>
+           <height>50</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>15</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>Impulse count:</string>
+         </property>
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_6">
+         <property name="spacing">
+          <number>10</number>
+         </property>
+         <property name="rightMargin">
+          <number>167</number>
+         </property>
+         <item>
+          <widget class="QSpinBox" name="impulse_count">
+           <property name="minimumSize">
+            <size>
+             <width>90</width>
+             <height>30</height>
+            </size>
+           </property>
+           <property name="minimum">
+            <number>1</number>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </item>
      <item row="5" column="3">
       <widget class="QDoubleSpinBox" name="station_distortion">
        <property name="sizePolicy">
@@ -918,18 +986,18 @@
        </property>
       </widget>
      </item>
-     <item row="7" column="1">
-      <widget class="QLabel" name="distance_label">
+     <item row="7" column="3">
+      <widget class="QLabel" name="speed_label">
        <property name="minimumSize">
         <size>
          <width>200</width>
-         <height>100</height>
+         <height>80</height>
         </size>
        </property>
        <property name="maximumSize">
         <size>
          <width>200</width>
-         <height>100</height>
+         <height>80</height>
         </size>
        </property>
        <property name="font">
@@ -951,13 +1019,13 @@
        <property name="minimumSize">
         <size>
          <width>150</width>
-         <height>100</height>
+         <height>80</height>
         </size>
        </property>
        <property name="maximumSize">
         <size>
          <width>150</width>
-         <height>100</height>
+         <height>80</height>
         </size>
        </property>
        <property name="font">
@@ -971,8 +1039,33 @@
        </property>
       </widget>
      </item>
-     <item row="4" column="1">
-      <widget class="Line" name="line_4">
+     <item row="7" column="0">
+      <widget class="QLineEdit" name="lineEdit_13">
+       <property name="minimumSize">
+        <size>
+         <width>150</width>
+         <height>80</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>150</width>
+         <height>80</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>23</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Distance:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="3">
+      <widget class="Line" name="line_6">
        <property name="styleSheet">
         <string notr="true">background-color: rgb(235, 238, 255);</string>
        </property>
@@ -1053,98 +1146,58 @@
        </property>
       </widget>
      </item>
-     <item row="6" column="1">
-      <widget class="QDoubleSpinBox" name="station_delta">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
+     <item row="8" column="0">
+      <widget class="QLineEdit" name="lineEdit_16">
        <property name="minimumSize">
         <size>
          <width>150</width>
-         <height>30</height>
+         <height>80</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>150</width>
+         <height>80</height>
         </size>
        </property>
        <property name="font">
         <font>
-         <pointsize>10</pointsize>
+         <pointsize>17</pointsize>
+         <bold>true</bold>
         </font>
        </property>
-       <property name="decimals">
-        <number>4</number>
+       <property name="text">
+        <string>Coordinates:</string>
        </property>
       </widget>
      </item>
-     <item row="3" column="1">
-      <layout class="QVBoxLayout" name="verticalLayout_11">
-       <property name="leftMargin">
-        <number>0</number>
+     <item row="8" column="1">
+      <widget class="QLabel" name="coordinates_label">
+       <property name="minimumSize">
+        <size>
+         <width>300</width>
+         <height>80</height>
+        </size>
        </property>
-       <property name="topMargin">
-        <number>5</number>
+       <property name="maximumSize">
+        <size>
+         <width>300</width>
+         <height>80</height>
+        </size>
        </property>
-       <property name="rightMargin">
-        <number>0</number>
+       <property name="font">
+        <font>
+         <pointsize>18</pointsize>
+         <bold>true</bold>
+        </font>
        </property>
-       <property name="bottomMargin">
-        <number>5</number>
+       <property name="text">
+        <string>NULL</string>
        </property>
-       <item>
-        <widget class="QLineEdit" name="lineEdit_9">
-         <property name="maximumSize">
-          <size>
-           <width>150</width>
-           <height>50</height>
-          </size>
-         </property>
-         <property name="font">
-          <font>
-           <pointsize>15</pointsize>
-          </font>
-         </property>
-         <property name="text">
-          <string>Amplification:</string>
-         </property>
-         <property name="readOnly">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_12">
-         <property name="rightMargin">
-          <number>250</number>
-         </property>
-         <item>
-          <widget class="QDoubleSpinBox" name="station_amplification">
-           <property name="sizePolicy">
-            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-             <horstretch>0</horstretch>
-             <verstretch>0</verstretch>
-            </sizepolicy>
-           </property>
-           <property name="minimumSize">
-            <size>
-             <width>90</width>
-             <height>30</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>80</width>
-             <height>30</height>
-            </size>
-           </property>
-           <property name="decimals">
-            <number>3</number>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-      </layout>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
      </item>
     </layout>
    </widget>

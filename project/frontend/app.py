@@ -8,7 +8,7 @@ import json
 
 
 ## @package app
-#Contains class MainWindow
+# Contains class MainWindow
 
 ## Main window of our app
 class MainWindow(QtWidgets.QMainWindow):
@@ -49,7 +49,6 @@ class MainWindow(QtWidgets.QMainWindow):
         with open('../values.json', 'w') as save:
             json.dump(self.data, save)
 
-
     ##Loads saved values from a JSON file and populates the UI.
     # Loads values from a JSON file, retrieves specific values and sets them in the corresponding UI elements.
     def LoadValues(self):
@@ -75,9 +74,8 @@ class MainWindow(QtWidgets.QMainWindow):
         except:
             return
 
-
     ##Runs the simulation using the input data from the UI.
-    #Retrieves input data from the UI elements, simulates the signal propagation,and updates the results. Displays an error message if simulation fails.
+    # Retrieves input data from the UI elements, simulates the signal propagation,and updates the results. Displays an error message if simulation fails.
     def Simulate(self):
 
         self.data = {
@@ -103,19 +101,21 @@ class MainWindow(QtWidgets.QMainWindow):
         self.wave_len = res["WAVEL"]
         self.fc = res["L"]
         self.coords = res["OBJCOORD"]
-        if np.isnan(self.distance) or np.isnan(self.speed):
+        self.crds = res["COORD"]
+        if np.isnan(self.distance) or np.isnan(self.speed) or np.isnan(self.crds):
             QtWidgets.QMessageBox.critical(self, 'Error', 'Something went wrong. Please, put different values.',
                                            buttons=QtWidgets.QMessageBox.StandardButton.Ok,
                                            defaultButton=QtWidgets.QMessageBox.StandardButton.Ok)
         else:
             self.ui.distance_label.setText(f'{self.distance:.3f}')
             self.ui.speed_label.setText(f'{self.speed:.3f}')
+            self.ui.coordinates_label.setText(f'{self.crds[0]:.3f}, {self.crds[1]:.3f}, {self.crds[2]:.3f}')
 
 
     ##Saves the simulation results to a text file.
     # Checks if there are valid results to save, then writes the distance and speed to a text file 'results.txt'.
     def SaveResults(self):
-        if ("NULL" in (self.ui.distance_label.text(), self.ui.speed_label.text())):
+        if ("NULL" in (self.ui.distance_label.text(), self.ui.speed_label.text(), self.ui.coordinates_label.text())):
             QtWidgets.QMessageBox.critical(self, 'Error', 'Nothing to save. Please, make simulation.',
                                            buttons=QtWidgets.QMessageBox.StandardButton.Ok,
                                            defaultButton=QtWidgets.QMessageBox.StandardButton.Ok)
@@ -129,7 +129,7 @@ class MainWindow(QtWidgets.QMainWindow):
     ## Draws the scene based on simulation results.
     # Checks if there are valid results to draw, then plots the scene showing the object and radar station positions with the calculated distances.
     def DrawScene(self):
-        if ("NULL" in (self.ui.distance_label.text(), self.ui.speed_label.text())):
+        if ("NULL" in (self.ui.distance_label.text(), self.ui.speed_label.text(), self.ui.coordinates_label.text())):
             QtWidgets.QMessageBox.critical(self, 'Error', 'Nothing to draw. Please, make simulation.',
                                            buttons=QtWidgets.QMessageBox.StandardButton.Ok,
                                            defaultButton=QtWidgets.QMessageBox.StandardButton.Ok)
@@ -197,7 +197,7 @@ class MainWindow(QtWidgets.QMainWindow):
     # Check if there are valid results to plot and display a graph showing prediction accuracy.
     def DrawPlots(self):
 
-        if ("NULL" in (self.ui.distance_label.text(), self.ui.speed_label.text())):
+        if ("NULL" in (self.ui.distance_label.text(), self.ui.speed_label.text(), self.ui.coordinates_label.text())):
             QtWidgets.QMessageBox.critical(self, 'Error', 'Nothing to draw. Please, make simulation.',
                                            buttons=QtWidgets.QMessageBox.StandardButton.Ok,
                                            defaultButton=QtWidgets.QMessageBox.StandardButton.Ok)
@@ -210,7 +210,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.plots.canvas.manager.set_window_title('Plot')
         axes.plot(grafics[0], grafics[1])
         axes.set_title('Prediction Accuracy(Noise)')
-        axes.set_xlabel('Noise')
+        axes.set_xlabel('Noise(%)')
         axes.set_ylabel('Accuracy')
         self.plots.show()
 

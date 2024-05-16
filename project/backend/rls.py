@@ -7,8 +7,9 @@ from project.backend.constants import pi
 
 import numpy as np
 
+
 ##@package rls
-#Contains class RLS
+# Contains class RLS
 class RLS:
     """The class responsible for simulating the operation of the entire radar station."""
     __slots__ = ('receiver', 'radiator')
@@ -130,6 +131,6 @@ class RLS:
 
         for i in range(len(noises)):
             distance = self.calculate_distance(entity, noises[i])
-            relative_error.append((distance / real_distance) * 100)
+            relative_error.append((distance / real_distance))
             noises[i] *= 100
         return [noises, relative_error]

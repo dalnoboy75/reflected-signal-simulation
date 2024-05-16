@@ -2,7 +2,7 @@ import numpy as np
 from project.backend.entity import Entity
 from project.backend.muffler import Muffler
 from project.backend.rls import RLS
-from random import uniform
+from random import randint
 
 
 ##@package simulation
@@ -40,15 +40,16 @@ def simulate(data: dict) -> dict:
     velocity_vector = station.calculate_velocity(entity, noise, dt)
     velocity = np.linalg.norm(velocity_vector)
 
+    random_int = -1 if randint(0, 1) == 0 else 1
     # Preparing the result dictionary
     res = {
         "MUFDIST": muffled_distance,
-        "SPEED": velocity + uniform(-1, 1) * noise,
+        "SPEED": velocity + random_int * velocity * noise_share / 100,
         "SIGMA": entity.reflection_surface,
         "WAVEL": station.radiator.wave_length,
         "L": 1,
         "OBJCOORD": entity_coords,
         "PREDICT": station.testing_prediction_on_different_noise(muffler, entity),
-        "COORD": entity_coordinates + uniform(-1, 1) * noise
+        "COORD": entity_coordinates + random_int * entity_coordinates * noise_share / 100
     }
     return res

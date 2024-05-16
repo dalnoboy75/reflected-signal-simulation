@@ -307,7 +307,7 @@ border-radius: 15px;</string>
      <item row="1" column="3">
       <widget class="Line" name="line_3">
        <property name="styleSheet">
-        <string notr="true">background-color: rgb(235, 238, 255);</string>
+        <string notr="true">background-color: rgb(63, 43, 36);</string>
        </property>
        <property name="lineWidth">
         <number>3</number>
@@ -320,7 +320,7 @@ border-radius: 15px;</string>
      <item row="4" column="1">
       <widget class="Line" name="line_4">
        <property name="styleSheet">
-        <string notr="true">background-color: rgb(235, 238, 255);</string>
+        <string notr="true">background-color: rgb(63, 43, 36);</string>
        </property>
        <property name="lineWidth">
         <number>3</number>
@@ -626,7 +626,7 @@ border-radius: 15px;</string>
      <item row="1" column="2">
       <widget class="Line" name="line_2">
        <property name="styleSheet">
-        <string notr="true">background-color: rgb(235, 238, 255);</string>
+        <string notr="true">background-color: rgb(63, 43, 36);</string>
        </property>
        <property name="lineWidth">
         <number>3</number>
@@ -895,7 +895,7 @@ border-radius: 15px;</string>
      <item row="4" column="2">
       <widget class="Line" name="line_5">
        <property name="styleSheet">
-        <string notr="true">background-color: rgb(235, 238, 255);</string>
+        <string notr="true">background-color: rgb(63, 43, 36);</string>
        </property>
        <property name="lineWidth">
         <number>3</number>
@@ -908,7 +908,7 @@ border-radius: 15px;</string>
      <item row="1" column="1">
       <widget class="Line" name="line">
        <property name="styleSheet">
-        <string notr="true">background-color: rgb(235, 238, 255);</string>
+        <string notr="true">background-color: rgb(63, 43, 36);</string>
        </property>
        <property name="lineWidth">
         <number>3</number>
@@ -1185,7 +1185,7 @@ border-radius: 15px;</string>
      <item row="4" column="3">
       <widget class="Line" name="line_6">
        <property name="styleSheet">
-        <string notr="true">background-color: rgb(235, 238, 255);</string>
+        <string notr="true">background-color: rgb(63, 43, 36);</string>
        </property>
        <property name="lineWidth">
         <number>3</number>
